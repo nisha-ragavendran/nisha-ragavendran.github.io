@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kelvi.in — AI Support Automation for Modern Businesses</title>
+  <meta name="description" content="Kelvi.in is a multi-tenant SaaS platform that automates customer support with AI chat widgets, WhatsApp agents, email agents, and voice call agents. Built for few-line integration, hassle-free configuration, multilingual conversations, and up to 90% automation." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root { color-scheme: dark; }
+    body {
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.06), transparent 24%),
+        radial-gradient(circle at 82% 8%, rgba(120,119,198,0.28), transparent 18%),
+        radial-gradient(circle at 18% 22%, rgba(14,165,233,0.18), transparent 22%),
+        radial-gradient(circle at 50% 90%, rgba(168,85,247,0.14), transparent 18%),
+        linear-gradient(180deg, #050816 0%, #07111f 44%, #050816 100%);
+    }
+    .noise:before {
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.08;
+      mix-blend-mode:screen;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
+    }
+    .glass {
+      background: rgba(10,16,32,.62);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(148,163,184,.16);
+      box-shadow: 0 20px 80px rgba(0,0,0,.38);
+    }
+    .gridline {
+      background-image: linear-gradient(rgba(148,163,184,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,.08) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(circle at center, black 38%, transparent 78%);
+    }
+    .glow {
+      text-shadow: 0 0 26px rgba(59,130,246,.28);
+    }
+    .orbit {
+      position:absolute; inset:-18%;
+      border-radius:9999px;
+      border:1px solid rgba(96,165,250,.12);
+      animation: spin 20s linear infinite;
+    }
+    .orbit:nth-child(2){ inset:-8%; animation-duration: 14s; }
+    .orbit:nth-child(3){ inset:4%; animation-duration: 10s; }
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body class="noise text-zinc-100 antialiased selection:bg-cyan-300 selection:text-zinc-950">
+  <div class="relative overflow-hidden">
+    <div class="absolute inset-0 gridline opacity-35"></div>
+
+    <header class="relative z-10">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-8">
+        <a href="#top" class="group inline-flex items-center gap-3">
+          <div class="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/12 bg-white/6 shadow-lg shadow-black/30">
+            <span class="text-lg font-black tracking-tight text-cyan-300">K</span>
+          </div>
+          <div>
+            <div class="text-sm font-semibold uppercase tracking-[0.28em] text-zinc-400">Kelvi.in</div>
+            <div class="text-xs text-zinc-500">Support automation, reimagined</div>
+          </div>
+        </a>
+
+        <nav class="hidden items-center gap-8 md:flex text-sm text-zinc-300">
+          <a href="#product" class="hover:text-white transition">Product</a>
+          <a href="#channels" class="hover:text-white transition">Channels</a>
+          <a href="#how" class="hover:text-white transition">How it works</a>
+          <a href="#pricing" class="hover:text-white transition">Pricing</a>
+        </nav>
+
+        <a href="#demo" class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/8 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/12">
+          Get a demo <i data-lucide="arrow-right" class="h-4 w-4"></i>
+        </a>
+      </div>
+    </header>
+
+    <main id="top" class="relative z-10">
+      <section class="mx-auto max-w-7xl px-6 pb-20 pt-6 lg:px-8 lg:pb-28 lg:pt-10">
+        <div class="grid items-center gap-14 lg:grid-cols-12">
+          <div class="lg:col-span-7">
+            <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-2 text-sm text-cyan-200">
+              <i data-lucide="sparkles" class="h-4 w-4"></i>
+              Kelvi means “question” in Tamil — கேள்வி
+            </div>
+
+            <h1 class="max-w-4xl text-5xl font-black leading-[0.93] tracking-tight text-white sm:text-6xl lg:text-7xl">
+              Every customer
+              <span class="block text-cyan-300 glow">question</span>
+              answered instantly.
+            </h1>
+
+            <p class="mt-7 max-w-2xl text-lg leading-8 text-zinc-300 sm:text-xl">
+              Kelvi.in is a multi-tenant AI support platform that helps businesses automate customer support across chat widgets, WhatsApp, email, and voice calls — with multilingual support so customers can chat and get responses in their native language, plus few lines of code, hassle-free configuration, and up to 90% support automation.
+            </p>
+
+            <div class="mt-9 flex flex-col gap-4 sm:flex-row">
+              <a href="#demo" class="inline-flex items-center justify-center gap-2 rounded-full bg-cyan-300 px-6 py-3.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-200">
+                Start with a demo <i data-lucide="move-right" class="h-4 w-4"></i>
+              </a>
+              <a href="#product" class="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-white/10">
+                See the platform <i data-lucide="play" class="h-4 w-4"></i>
+              </a>
+            </div>
+
+            <div class="mt-10 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-3">
+              <div class="glass rounded-3xl p-5">
+                <div class="text-3xl font-black text-white">2 min</div>
+                <div class="mt-1 text-sm text-zinc-400">to connect your first widget</div>
+              </div>
+              <div class="glass rounded-3xl p-5">
+                <div class="text-3xl font-black text-white">90%</div>
+                <div class="mt-1 text-sm text-zinc-400">support automation target</div>
+              </div>
+              <div class="glass rounded-3xl p-5">
+                <div class="text-3xl font-black text-white">24/7</div>
+                <div class="mt-1 text-sm text-zinc-400">fast, immediate customer satisfaction</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5">
+            <div class="relative mx-auto max-w-xl">
+              <div class="absolute inset-0-z-10 rounded-[2rem] bg-cyan-300/10 blur-3xl"></div>
+              <div class="glass relative overflow-hidden rounded-[2rem] border-white/10 p-5">
+                <div class="absolute right-[-5rem] top-[-5rem] h-44 w-44 rounded-full bg-indigo-500/12 blur-2xl"></div>
+                <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                  <div>
+                    <div class="text-sm font-semibold text-white">Kelvi Support Console</div>
+                    <div class="text-xs text-zinc-500">Multi-tenant workspace view</div>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+                    <span class="text-xs uppercase tracking-[0.22em] text-zinc-400">Live</span>
+                  </div>
+                </div>
+
+                <div class="mt-5 grid gap-4">
+                  <div class="rounded-2xl border border-white/10 bg-black/25 p-4">
+                    <div class="flex items-center justify-between">
+                      <div class="flex items-center gap-3">
+                        <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-300/12 text-cyan-200">
+                          <i data-lucide="bot" class="h-5 w-5"></i>
+                        </div>
+                        <div>
+                          <div class="font-medium text-white">AI Chat Widget</div>
+                          <div class="text-sm text-zinc-400">Instant answers on-site</div>
+                        </div>
+                      </div>
+                      <div class="rounded-full bg-emerald-400/12 px-3 py-1 text-xs text-emerald-300">89% resolved</div>
+                    </div>
+                  </div>
+
+                  <div class="grid gap-4 sm:grid-cols-2">
+                    <div class="rounded-2xl border border-white/10 bg-black/25 p-4">
+                      <div class="flex items-center gap-3">
+                        <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-white/6 text-sky-300">
+                          <i data-lucide="message-circle" class="h-5 w-5"></i>
+                        </div>
+                        <div>
+                          <div class="font-medium text-white">WhatsApp Agent</div>
+                          <div class="text-sm text-zinc-400">Proactive replies</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="rounded-2xl border border-white/10 bg-black/25 p-4">
+                      <div class="flex items-center gap-3">
+                        <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-white/6 text-violet-300">
+                          <i data-lucide="mail" class="h-5 w-5"></i>
+                        </div>
+                        <div>
+                          <div class="font-medium text-white">Email Agent</div>
+                          <div class="text-sm text-zinc-400">Inbox deflection</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="rounded-2xl border border-white/10 bg-black/25 p-4">
+                    <div class="flex items-center gap-3">
+                      <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-white/6 text-indigo-300">
+                        <i data-lucide="phone-call" class="h-5 w-5"></i>
+                      </div>
+                      <div class="flex-1">
+                        <div class="flex items-center justify-between">
+                          <div class="font-medium text-white">Voice Call Agent</div>
+                          <div class="text-xs text-zinc-400">Human-like routing</div>
+                        </div>
+                        <div class="mt-2 h-2 rounded-full bg-white/8">
+                          <div class="h-2 w-[84%] rounded-full bg-gradient-to-r from-cyan-300 via-sky-300 to-violet-300"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="grid gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 sm:grid-cols-3">
+                    <div>
+                      <div class="text-xs uppercase tracking-[0.2em] text-zinc-500">Setup</div>
+                      <div class="mt-1 text-sm font-semibold text-white">Few lines of code</div>
+                    </div>
+                    <div>
+                      <div class="text-xs uppercase tracking-[0.2em] text-zinc-500">Config</div>
+                      <div class="mt-1 text-sm font-semibold text-white">No-code friendly</div>
+                    </div>
+                    <div>
+                      <div class="text-xs uppercase tracking-[0.2em] text-zinc-500">Language</div>
+                      <div class="mt-1 text-sm font-semibold text-white">Multilingual by design</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="product" class="mx-auto max-w-7xl px-6 py-8 lg:px-8">
+        <div class="grid gap-6 lg:grid-cols-3">
+          <div class="glass rounded-[2rem] p-7 lg:col-span-2">
+            <div class="flex items-center gap-2 text-sm uppercase tracking-[0.26em] text-zinc-500">
+              <span class="h-px w-10 bg-cyan-300/60"></span> why kelvi
+            </div>
+            <h2 class="mt-4 text-3xl font-black tracking-tight text-white sm:text-4xl">Built around the one thing customers always bring you: a question.</h2>
+            <p class="mt-4 max-w-2xl text-zinc-300 leading-7">
+              In Tamil, Kelvi means <span class="font-semibold text-cyan-200">“question”</span> — கேள்வி. That meaning is at the heart of the brand: every ticket, every ping, every call starts with a question. Kelvi answers those questions instantly, consistently, and at scale.
+            </p>
+          </div>
+
+          <div class="glass rounded-[2rem] p-7">
+            <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-300/12 text-cyan-200">
+              <i data-lucide="languages" class="h-6 w-6"></i>
+            </div>
+            <h3 class="mt-5 text-xl font-bold text-white">A name with meaning</h3>
+            <p class="mt-3 text-zinc-300 leading-7">
+              Kelvi bridges language, intent, and action — turning incoming questions into guided answers, automated resolutions, and clean handoffs when a human is needed.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="channels" class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+        <div class="flex items-end justify-between gap-6">
+          <div>
+            <div class="text-sm uppercase tracking-[0.26em] text-zinc-500">support channels</div>
+            <h2 class="mt-3 text-3xl font-black tracking-tight text-white sm:text-4xl">One brain. Four native ways to help.</h2>
+          </div>
+          <div class="hidden md:block max-w-md text-right text-zinc-400">
+            Serve customers where they already are: your website, WhatsApp, inbox, and phone.
+          </div>
+        </div>
+
+        <div class="mt-10 grid gap-5 lg:grid-cols-2">
+          <article class="glass rounded-[2rem] p-7">
+            <div class="flex items-center gap-3">
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/7 text-cyan-300"><i data-lucide="panel-top" class="h-6 w-6"></i></div>
+              <div>
+                <h3 class="text-xl font-bold text-white">AI Chat Widgets</h3>
+                <p class="text-sm text-zinc-500">Fast answers on your website and app</p>
+              </div>
+            </div>
+            <p class="mt-4 text-zinc-300 leading-7">Drop in a widget with a few lines of code. Kelvi learns from your knowledge base and resolves common questions before they reach your team.</p>
+          </article>
+
+          <article class="glass rounded-[2rem] p-7">
+            <div class="flex items-center gap-3">
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/7 text-emerald-300"><i data-lucide="send" class="h-6 w-6"></i></div>
+              <div>
+                <h3 class="text-xl font-bold text-white">WhatsApp Agents</h3>
+                <p class="text-sm text-zinc-500">Conversational support where customers respond fastest</p>
+              </div>
+            </div>
+            <p class="mt-4 text-zinc-300 leading-7">Automate order updates, FAQs, reminders, and support flows with a WhatsApp-first experience that feels immediate and personal.</p>
+          </article>
+
+          <article class="glass rounded-[2rem] p-7">
+            <div class="flex items-center gap-3">
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/7 text-violet-300"><i data-lucide="inbox" class="h-6 w-6"></i></div>
+              <div>
+                <h3 class="text-xl font-bold text-white">Email Agents</h3>
+                <p class="text-sm text-zinc-500">Triage, draft, and resolve incoming mail</p>
+              </div>
+            </div>
+            <p class="mt-4 text-zinc-300 leading-7">Kelvi turns support email into an automation layer: classify, answer, escalate, and keep every thread in one place.</p>
+          </article>
+
+          <article class="glass rounded-[2rem] p-7">
+            <div class="flex items-center gap-3">
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/7 text-indigo-300"><i data-lucide="phone" class="h-6 w-6"></i></div>
+              <div>
+                <h3 class="text-xl font-bold text-white">Voice Call Agents</h3>
+                <p class="text-sm text-zinc-500">Pick up, understand, and route calls</p>
+              </div>
+            </div>
+            <p class="mt-4 text-zinc-300 leading-7">Handle common call intents with AI voice agents and send complex cases to the right human with full context intact.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="how" class="mx-auto max-w-7xl px-6 py-8 lg:px-8">
+        <div class="glass rounded-[2rem] p-7 lg:p-10">
+          <div class="grid gap-10 lg:grid-cols-12">
+            <div class="lg:col-span-4">
+              <div class="text-sm uppercase tracking-[0.26em] text-zinc-500">how it works</div>
+              <h2 class="mt-3 text-3xl font-black tracking-tight text-white sm:text-4xl">Integration so simple it feels unfair.</h2>
+              <p class="mt-4 text-zinc-300 leading-7">
+                Build once, deploy everywhere. Kelvi is designed for teams that want immediate value without a heavy implementation burden.
+              </p>
+            </div>
+
+            <div class="lg:col-span-8 grid gap-5">
+              <div class="grid gap-5 md:grid-cols-3">
+                <div class="rounded-3xl border border-white/10 bg-black/25 p-5">
+                  <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-300/12 text-cyan-200">1</div>
+                  <h3 class="mt-4 font-bold text-white">Connect</h3>
+                  <p class="mt-2 text-sm leading-6 text-zinc-400">Add a snippet or connect your channel in minutes.</p>
+                </div>
+                <div class="rounded-3xl border border-white/10 bg-black/25 p-5">
+                  <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-300/12 text-cyan-200">2</div>
+                  <h3 class="mt-4 font-bold text-white">Configure</h3>
+                  <p class="mt-2 text-sm leading-6 text-zinc-400">Set tone, workflows, handoff rules, and knowledge sources.</p>
+                </div>
+                <div class="rounded-3xl border border-white/10 bg-black/25 p-5">
+                  <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-300/12 text-cyan-200">3</div>
+                  <h3 class="mt-4 font-bold text-white">Automate</h3>
+                  <p class="mt-2 text-sm leading-6 text-zinc-400">Start resolving routine questions automatically across channels.</p>
+                </div>
+              </div>
+
+              <div class="rounded-3xl border border-white/10 bg-gradient-to-br from-white/7 to-white/3 p-6">
+                <div class="flex flex-wrap items-center justify-between gap-4">
+                  <div>
+                    <div class="text-sm text-zinc-400">Performance promise</div>
+                    <div class="mt-1 text-2xl font-black text-white">Up to 90% support automation</div>
+                  </div>
+                  <div class="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-sm font-semibold text-emerald-300">
+                    Faster resolution, happier customers
+                  </div>
+                </div>
+                <div class="mt-5 h-3 rounded-full bg-white/10">
+                  <div class="h-3 w-[90%] rounded-full bg-gradient-to-r from-cyan-300 via-sky-300 to-violet-300"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+        <div class="grid gap-6 lg:grid-cols-12">
+          <div class="lg:col-span-5">
+            <div class="text-sm uppercase tracking-[0.26em] text-zinc-500">for teams</div>
+            <h2 class="mt-3 text-3xl font-black tracking-tight text-white sm:text-4xl">Designed for businesses that want instant outcomes.</h2>
+            <p class="mt-4 text-zinc-300 leading-7">From startups to multi-location operations, Kelvi scales support automation without turning your team into system integrators.</p>
+          </div>
+
+          <div class="lg:col-span-7 grid gap-5 md:grid-cols-3">
+            <div class="glass rounded-[2rem] p-6">
+              <i data-lucide="rocket" class="h-6 w-6 text-cyan-200"></i>
+              <h3 class="mt-4 font-bold text-white">Launch fast</h3>
+              <p class="mt-2 text-sm leading-6 text-zinc-400">Go live in hours, not weeks.</p>
+            </div>
+            <div class="glass rounded-[2rem] p-6">
+              <i data-lucide="sliders-horizontal" class="h-6 w-6 text-sky-300"></i>
+              <h3 class="mt-4 font-bold text-white">No friction</h3>
+              <p class="mt-2 text-sm leading-6 text-zinc-400">Configuration stays simple, even as you scale.</p>
+            </div>
+            <div class="glass rounded-[2rem] p-6">
+              <i data-lucide="shield-check" class="h-6 w-6 text-violet-300"></i>
+              <h3 class="mt-4 font-bold text-white">Reliable handoff</h3>
+              <p class="mt-2 text-sm leading-6 text-zinc-400">Escalate to humans with full context when needed.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" class="mx-auto max-w-7xl px-6 pb-24 lg:px-8">
+        <div class="relative overflow-hidden rounded-[2.25rem] border border-white/10 bg-gradient-to-br from-cyan-300/14 via-white/6 to-violet-300/10 p-8 lg:p-12">
+          <div class="absolute right-0 top-0 h-56 w-56 rounded-full bg-cyan-300/15 blur-3xl"></div>
+          <div class="grid gap-10 lg:grid-cols-12 lg:items-center">
+            <div class="lg:col-span-7">
+              <div class="text-sm uppercase tracking-[0.26em] text-zinc-400">get started</div>
+              <h2 class="mt-3 text-3xl font-black tracking-tight text-white sm:text-5xl">Turn questions into answers, instantly.</h2>
+              <p class="mt-4 max-w-2xl text-zinc-200/90 leading-7">
+                If your customers are asking it, Kelvi can likely automate it — across chat, WhatsApp, email, and voice.
+                With multilingual support, customers can ask in their native language and get responses they understand naturally.
+              </p>
+            </div>
+
+            <div class="lg:col-span-5">
+              <form class="glass rounded-[1.75rem] p-6" id="lead-form">
+                <div class="grid gap-4">
+                  <div>
+                    <label for="name" class="mb-2 block text-sm font-medium text-zinc-300">Name</label>
+                    <input id="name" name="name" type="text" placeholder="Your name" class="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none placeholder:text-zinc-600 focus:border-cyan-300/50" />
+                  </div>
+                  <div>
+                    <label for="email" class="mb-2 block text-sm font-medium text-zinc-300">Work email</label>
+                    <input id="email" name="email" type="email" placeholder="you@company.com" class="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none placeholder:text-zinc-600 focus:border-cyan-300/50" />
+                  </div>
+                  <div>
+                    <label for="company" class="mb-2 block text-sm font-medium text-zinc-300">Company</label>
+                    <input id="company" name="company" type="text" placeholder="Company name" class="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none placeholder:text-zinc-600 focus:border-cyan-300/50" />
+                  </div>
+                  <button type="submit" class="mt-2 inline-flex items-center justify-center gap-2 rounded-2xl bg-cyan-300 px-5 py-3.5 font-semibold text-slate-950 transition hover:bg-cyan-200">
+                    Request a demo <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                  </button>
+                  <p class="text-xs leading-5 text-zinc-500">No spam. Just a practical conversation about automation, setup, multilingual support, and expected impact.</p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    (function () {
+      const projectId = "acd26087-5a55-449e-acce-318ebfa4d545";
+      const form = document.getElementById("lead-form");
+      if (!form) return;
+
+      const endpoint = `https://api.landing-page.io/api/mail-setting/form-events/${projectId}`;
+
+      function collectFields() {
+        const fields = {};
+        const elements = form.querySelectorAll("input, select, textarea");
+        elements.forEach((el) => {
+          const name = el.name || el.id;
+          if (!name) return;
+          const type = (el.type || "").toLowerCase();
+          if (type === "password" || type === "file" || type === "captcha") return;
+          if (type === "checkbox" || type === "radio") {
+            if (!el.checked) return;
+            if (fields[name] === undefined) fields[name] = el.value;
+            else if (Array.isArray(fields[name])) fields[name].push(el.value);
+            else fields[name] = [fields[name], el.value];
+            return;
+          }
+          fields[name] = el.value;
+        });
+        return fields;
+      }
+
+      function sendCapture() {
+        const payload = { project_id: projectId, fields: collectFields() };
+        fetch(endpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+          keepalive: true
+        }).catch(() => {});
+      }
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        sendCapture();
+        const btn = form.querySelector("button[type='submit']");
+        if (btn) {
+          const original = btn.innerHTML;
+          btn.innerHTML = "Requested <i data-lucide='check' class='h-4 w-4'></i>";
+          lucide.createIcons();
+          setTimeout(() => { btn.innerHTML = original; lucide.createIcons(); }, 1800);
+        }
+        form.reset();
+      });
+
+      form.addEventListener("click", function (e) {
+        const btn = e.target.closest("button[type='submit']");
+        if (btn) setTimeout(sendCapture, 0);
+      });
+    })();
+  </script>
+<script>
+window.__AILP_FORM_CAPTURE__ = {
+  endpointBase: "https://api.landing-page.io/api/mail-setting/form-events",
+  projectId: "acd26087-5a55-449e-acce-318ebfa4d545",
+  conversationId: "conv_cd731234944546868aa029345b925dd0",
+  captureVersion: "2026-05-21-normalized-dedupe-v8"
+};
+</script>
+<script>
+(function () {
+  if (window.__AILP_FORM_CAPTURE_BOUND__) return;
+  window.__AILP_FORM_CAPTURE_BOUND__ = true;
+  var config = window.__AILP_FORM_CAPTURE__ || {};
+  var projectId = config.projectId || "";
+  var endpointBase = config.endpointBase || "https://api.landing-page.io/api/mail-setting/form-events";
+  var endpoint = endpointBase.replace(/\/$/, "") + "/" + encodeURIComponent(projectId || "unknown-project");
+  var lastReportedForm = null;
+  var lastReportedAt = 0;
+  var lastSubmitKey = "";
+  var formEventsDedupe = window.__AILP_FORM_EVENTS_DEDUPE__ || {};
+  window.__AILP_FORM_EVENTS_DEDUPE__ = formEventsDedupe;
+
+  function isFormEventsUrl(url) {
+    return String(url || "").indexOf("/api/mail-setting/form-events/") !== -1;
+  }
+
+  function requestBodyFromFetchArgs(args) {
+    if (args.length > 1 && args[1] && Object.prototype.hasOwnProperty.call(args[1], "body")) {
+      return args[1].body || "";
+    }
+    var input = args[0];
+    return input && input.body ? input.body : "";
+  }
+
+  function stableStringify(value) {
+    if (value === null || typeof value !== "object") return JSON.stringify(value);
+    if (Array.isArray(value)) {
+      return "[" + value.map(stableStringify).join(",") + "]";
+    }
+    return "{" + Object.keys(value).sort().map(function (key) {
+      return JSON.stringify(key) + ":" + stableStringify(value[key]);
+    }).join(",") + "}";
+  }
+
+  function normalizedFormEventsRequestKey(url, body) {
+    var raw = String(body || "");
+    try {
+      var parsed = JSON.parse(raw);
+      return [
+        String(url || ""),
+        String(parsed.project_id || projectId || ""),
+        stableStringify(parsed.fields || {})
+      ].join("|");
+    } catch (err) {
+      return String(url || "") + "|" + raw;
+    }
+  }
+
+  function isDuplicateFormEventsRequest(key) {
+    var now = Date.now();
+    var previous = formEventsDedupe[key] || 0;
+    formEventsDedupe[key] = now;
+    return previous && now - previous < 3000;
+  }
+
+  if (typeof fetch === "function" && !window.__AILP_FORM_EVENTS_FETCH_PATCHED__) {
+    window.__AILP_FORM_EVENTS_FETCH_PATCHED__ = true;
+    var nativeFetch = fetch.bind(window);
+    window.fetch = function () {
+      var args = Array.prototype.slice.call(arguments);
+      var input = args[0];
+      var url = typeof input === "string" ? input : (input && input.url) || "";
+      if (isFormEventsUrl(url)) {
+        var body = requestBodyFromFetchArgs(args);
+        var key = normalizedFormEventsRequestKey(url, body);
+        if (isDuplicateFormEventsRequest(key)) {
+          var responseBody = JSON.stringify({
+            code: 200,
+            message: "duplicate form event skipped",
+            data: { deduped: true }
+          });
+          if (typeof Response === "function") {
+            return Promise.resolve(new Response(responseBody, {
+              status: 200,
+              headers: { "Content-Type": "application/json" }
+            }));
+          }
+          return Promise.resolve({
+            ok: true,
+            status: 200,
+            text: function () { return Promise.resolve(responseBody); },
+            json: function () { return Promise.resolve(JSON.parse(responseBody)); }
+          });
+        }
+      }
+      return nativeFetch.apply(window, args);
+    };
+  }
+
+  function fieldForKey(form, key) {
+    if (!form || !form.elements) return null;
+    var field = form.elements[key];
+    if (!field) return null;
+    if (field.length && !field.type) return field[0] || null;
+    return field;
+  }
+
+  function put(data, key, value) {
+    if (Object.prototype.hasOwnProperty.call(data, key)) {
+      if (!Array.isArray(data[key])) data[key] = [data[key]];
+      data[key].push(value);
+    } else {
+      data[key] = value;
+    }
+  }
+
+  function collectFields(form) {
+    var data = {};
+    if (!form) return data;
+    var fd = new FormData(form);
+    fd.forEach(function (value, key) {
+      var field = fieldForKey(form, key);
+      var type = field ? String(field.type || "").toLowerCase() : "";
+      var lowerKey = String(key || "").toLowerCase();
+      if (type === "password" || lowerKey.indexOf("captcha") !== -1) {
+        put(data, key, "[redacted]");
+        return;
+      }
+      if (value instanceof File) {
+        put(data, key, value.name ? "[file:" + value.name + "]" : "");
+        return;
+      }
+      put(data, key, value);
+    });
+    return data;
+  }
+
+  function collectButtonContext(button) {
+    var data = {};
+    if (!button) return data;
+    var text = String(button.innerText || button.value || button.getAttribute("aria-label") || button.getAttribute("title") || "").trim();
+    if (text) data.button_text = text;
+    var href = button.getAttribute && button.getAttribute("href");
+    if (href) data.button_href = href;
+    var target = button.getAttribute && (button.getAttribute("data-target") || button.getAttribute("aria-controls"));
+    if (target) data.button_target = target;
+    return data;
+  }
+
+  function emitResult(status, detail) {
+    try {
+      window.dispatchEvent(new CustomEvent("ailp:form-capture", {
+        detail: Object.assign({ status: status }, detail || {})
+      }));
+    } catch (err) {}
+  }
+
+  function sendWithBeacon(body) {
+    if (!navigator.sendBeacon) return false;
+    return navigator.sendBeacon(endpoint, new Blob([body], { type: "application/json" }));
+  }
+
+  function send(payload) {
+    var body = JSON.stringify(payload);
+    if (typeof fetch !== "function") {
+      var queued = sendWithBeacon(body);
+      emitResult(queued ? "queued" : "failed", { payload: payload });
+      return;
+    }
+    fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: body
+    }).then(function (response) {
+      return response.text().then(function (text) {
+        var data = null;
+        if (text) {
+          try { data = JSON.parse(text); } catch (err) { data = text; }
+        }
+        emitResult(response.ok ? "success" : "error", {
+          ok: response.ok,
+          statusCode: response.status,
+          response: data,
+          payload: payload
+        });
+      });
+    }).catch(function (error) {
+      var queued = sendWithBeacon(body);
+      emitResult(queued ? "queued" : "failed", {
+        error: error ? String(error.message || error) : "",
+        payload: payload
+      });
+    });
+  }
+
+  function payloadKey(form, payload) {
+    var fields = payload && payload.fields ? payload.fields : {};
+    return [
+      payload.project_id || "",
+      form ? form.id || "" : "",
+      stableStringify(fields)
+    ].join("|");
+  }
+
+  function hasRealFormAction(form) {
+    if (!form) return false;
+    var raw = String(form.getAttribute("action") || "").trim();
+    if (!raw || raw === "#") return false;
+    try {
+      var actionUrl = new URL(raw, location.href);
+      return actionUrl.href !== location.href && actionUrl.hash !== "#";
+    } catch (err) {
+      return false;
+    }
+  }
+
+  function report(form, eventType, button) {
+    if (!form && !button) return;
+    var payload = {
+      project_id: config.projectId || "",
+      conversation_id: config.conversationId || "",
+      event_type: eventType || "form_submit",
+      page_url: location.href,
+      form_id: form ? form.id || "" : "",
+      form_name: form ? form.getAttribute("name") || "" : "",
+      button_text: button ? String(button.innerText || button.value || "").trim() : "",
+      fields: form ? collectFields(form) : collectButtonContext(button)
+    };
+    var key = payloadKey(form, payload);
+    if (key === lastSubmitKey && Date.now() - lastReportedAt < 3000) return;
+    lastSubmitKey = key;
+    lastReportedForm = form;
+    lastReportedAt = Date.now();
+    send(payload);
+  }
+
+  document.addEventListener("submit", function (e) {
+    if (!hasRealFormAction(e.target)) e.preventDefault();
+    if (e.target === lastReportedForm && Date.now() - lastReportedAt < 1500) return;
+    report(e.target, "form_submit", null);
+  }, true);
+
+  document.addEventListener("click", function (e) {
+    var target = e.target;
+    var button = target && target.closest ? target.closest('button, input[type="submit"], input[type="button"], [role="button"]') : null;
+    if (!button) return;
+    var form = button.form || (button.closest ? button.closest("form") : null);
+    if (form && !hasRealFormAction(form)) e.preventDefault();
+    report(form, "form_button_click", button);
+  }, true);
+})();
+</script>
+</body>
+</html>

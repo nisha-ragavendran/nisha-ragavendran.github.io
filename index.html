@@ -1,734 +1,1231 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="kelvi-verify" content="8f960e072a9471ec755677b3">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kelvi.in — AI Support Automation for Modern Businesses</title>
-  <meta name="description" content="Kelvi.in is a multi-tenant SaaS platform that automates customer support with AI chat widgets, WhatsApp agents, email agents, and voice call agents. Built for few-line integration, hassle-free configuration, multilingual conversations, and up to 90% automation." />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <title>SunRoute Travels – Tour Packages from Chennai</title>
+  <meta name="description" content="Premium tour packages from Chennai. Ooty, Kodaikanal, Munnar, Goa, Andaman and more. Group and customized itineraries available." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@400;500;600&family=DM+Mono:wght@400&display=swap" rel="stylesheet" />
   <style>
-    :root { color-scheme: dark; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --stone:     #2D2416;
+      --gold:      #C98A00;
+      --gold-lt:   #F5B800;
+      --parch:     #FBF7F0;
+      --teal:      #1A6B6B;
+      --teal-lt:   #E6F4F4;
+      --mist:      #F3EFE8;
+      --ink:       #1C1912;
+      --mid:       #5C5242;
+      --rule:      #DDD5C6;
+      --white:     #FFFFFF;
+    }
+
     body {
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.06), transparent 24%),
-        radial-gradient(circle at 82% 8%, rgba(120,119,198,0.28), transparent 18%),
-        radial-gradient(circle at 18% 22%, rgba(14,165,233,0.18), transparent 22%),
-        radial-gradient(circle at 50% 90%, rgba(168,85,247,0.14), transparent 18%),
-        linear-gradient(180deg, #050816 0%, #07111f 44%, #050816 100%);
+      font-family: 'Inter', sans-serif;
+      background: var(--parch);
+      color: var(--ink);
+      line-height: 1.65;
     }
-    .noise:before {
-      content:"";
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      opacity:.08;
-      mix-blend-mode:screen;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
+
+    /* ── NAV ── */
+    nav {
+      background: var(--stone);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-    .glass {
-      background: rgba(10,16,32,.62);
-      backdrop-filter: blur(18px);
-      border: 1px solid rgba(148,163,184,.16);
-      box-shadow: 0 20px 80px rgba(0,0,0,.38);
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--gold-lt);
+      letter-spacing: 0.02em;
     }
-    .gridline {
-      background-image: linear-gradient(rgba(148,163,184,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,.08) 1px, transparent 1px);
-      background-size: 28px 28px;
-      mask-image: radial-gradient(circle at center, black 38%, transparent 78%);
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: #C8C0B0;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
-    .glow {
-      text-shadow: 0 0 26px rgba(59,130,246,.28);
+    .nav-links a:hover { color: var(--gold-lt); }
+
+    /* ── HERO ── */
+    header.hero {
+      background: var(--stone);
+      padding: 5rem 2rem 4.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-    .orbit {
-      position:absolute; inset:-18%;
-      border-radius:9999px;
-      border:1px solid rgba(96,165,250,.12);
-      animation: spin 20s linear infinite;
+    header.hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 100%, #C98A0020 0%, transparent 70%);
+      pointer-events: none;
     }
-    .orbit:nth-child(2){ inset:-8%; animation-duration: 14s; }
-    .orbit:nth-child(3){ inset:4%; animation-duration: 10s; }
-    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .hero-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+    header.hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      color: var(--white);
+      line-height: 1.15;
+      max-width: 680px;
+      margin: 0 auto 1.2rem;
+    }
+    header.hero h1 em {
+      font-style: italic;
+      color: var(--gold-lt);
+    }
+    header.hero p {
+      color: #B0A898;
+      font-size: 1.05rem;
+      max-width: 500px;
+      margin: 0 auto 2.2rem;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--stone);
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.75rem 2rem;
+      border-radius: 2px;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .hero-stats {
+      margin-top: 3.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 3.5rem;
+      flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--gold-lt);
+    }
+    .stat-label {
+      font-size: 0.78rem;
+      color: #7A7060;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 0.2rem;
+    }
+
+    /* ── SECTIONS ── */
+    .section { padding: 5rem 2rem; max-width: 1120px; margin: 0 auto; }
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.7rem, 3vw, 2.3rem);
+      color: var(--stone);
+      margin-bottom: 0.5rem;
+    }
+    .section-sub {
+      color: var(--mid);
+      font-size: 0.97rem;
+      margin-bottom: 2.8rem;
+      max-width: 540px;
+    }
+    hr.rule { border: none; border-top: 1px solid var(--rule); margin: 0; }
+
+    /* ── PACKAGE GRID ── */
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .pkg-card {
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    .pkg-card:hover { box-shadow: 0 8px 28px rgba(45,36,22,0.10); }
+    .pkg-header {
+      background: var(--stone);
+      padding: 1.2rem 1.5rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .pkg-dest {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--white);
+    }
+    .pkg-state {
+      font-size: 0.72rem;
+      color: #8A8070;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 2px;
+    }
+    .pkg-badge {
+      background: var(--gold);
+      color: var(--stone);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.25rem 0.6rem;
+      border-radius: 1px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+    .pkg-body { padding: 1.4rem 1.5rem; }
+    .pkg-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+      margin-bottom: 1.2rem;
+    }
+    .pkg-meta-item { }
+    .meta-key {
+      font-size: 0.72rem;
+      color: var(--mid);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.15rem;
+    }
+    .meta-val {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--stone);
+    }
+    .meta-val.price { color: var(--teal); }
+    .pkg-name {
+      font-size: 0.85rem;
+      color: var(--mid);
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+    .highlights { list-style: none; padding: 0; }
+    .highlights li {
+      font-size: 0.85rem;
+      color: var(--mid);
+      padding: 0.25rem 0;
+      border-bottom: 1px dashed var(--rule);
+      display: flex;
+      gap: 0.5rem;
+    }
+    .highlights li:last-child { border-bottom: none; }
+    .highlights li::before { content: '→'; color: var(--gold); flex-shrink: 0; }
+
+    /* ── INCLUSIONS TABLE ── */
+    .inc-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin-top: 1.5rem;
+    }
+    .inc-table th {
+      background: var(--stone);
+      color: var(--gold-lt);
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .inc-table td {
+      padding: 0.7rem 1rem;
+      border-bottom: 1px solid var(--rule);
+      color: var(--mid);
+    }
+    .inc-table tr:last-child td { border-bottom: none; }
+    .inc-table tr:nth-child(even) td { background: var(--mist); }
+    .check { color: var(--teal); font-weight: 600; }
+    .cross { color: #C0392B; }
+
+    /* ── ITINERARIES ── */
+    .itin-section { background: var(--mist); }
+    .itin-grid {
+      display: grid;
+      gap: 2.5rem;
+    }
+    .itin-card {
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .itin-dest-header {
+      background: var(--teal);
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .itin-dest-header h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--white);
+    }
+    .itin-duration {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--teal-lt);
+      letter-spacing: 0.1em;
+    }
+    .itin-days { padding: 1.5rem; }
+    .itin-day {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 0 1rem;
+      margin-bottom: 1.2rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px dashed var(--rule);
+    }
+    .itin-day:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .day-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding-top: 0.1rem;
+    }
+    .day-title {
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--stone);
+      margin-bottom: 0.3rem;
+    }
+    .day-desc { font-size: 0.85rem; color: var(--mid); }
+    .day-stops {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .stop-tag {
+      background: var(--teal-lt);
+      color: var(--teal);
+      font-size: 0.75rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 1px;
+      font-weight: 500;
+    }
+
+    /* ── FAQ ── */
+    .faq-list { display: grid; gap: 1rem; margin-top: 1.5rem; }
+    details.faq-item {
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      background: var(--white);
+    }
+    summary.faq-q {
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 1.1rem 1.4rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--stone);
+    }
+    summary.faq-q::after { content: '+'; color: var(--gold); font-size: 1.2rem; }
+    details[open] summary.faq-q::after { content: '−'; }
+    .faq-a {
+      padding: 0 1.4rem 1.2rem;
+      font-size: 0.9rem;
+      color: var(--mid);
+      border-top: 1px dashed var(--rule);
+      padding-top: 1rem;
+      line-height: 1.7;
+    }
+
+    /* ── PRICING TABLE ── */
+    .price-table-wrap { overflow-x: auto; margin-top: 1.5rem; }
+    table.price-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      min-width: 620px;
+    }
+    .price-table th {
+      background: var(--stone);
+      color: var(--gold-lt);
+      padding: 0.85rem 1.1rem;
+      text-align: left;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+    .price-table td {
+      padding: 0.85rem 1.1rem;
+      border-bottom: 1px solid var(--rule);
+      color: var(--mid);
+    }
+    .price-table tr:hover td { background: var(--mist); }
+    .price-table .dest-name { font-weight: 600; color: var(--stone); }
+    .price-table .price-cell { color: var(--teal); font-weight: 600; }
+
+    /* ── CONTACT ── */
+    .contact-section {
+      background: var(--stone);
+      padding: 4.5rem 2rem;
+    }
+    .contact-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .contact-left h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .contact-left p { color: #8A8070; font-size: 0.95rem; line-height: 1.75; }
+    .contact-details { margin-top: 2rem; display: grid; gap: 1rem; }
+    .contact-row { display: flex; gap: 0.8rem; align-items: flex-start; }
+    .contact-key {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      min-width: 90px;
+      padding-top: 0.1rem;
+    }
+    .contact-val { color: #C8C0B0; font-size: 0.9rem; }
+    .contact-right { }
+    .whatsapp-box {
+      background: #1A3A1A;
+      border: 1px solid #2D5C2D;
+      border-radius: 3px;
+      padding: 1.8rem;
+    }
+    .whatsapp-box h3 {
+      color: #5FD068;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .whatsapp-box p { color: #8AB88A; font-size: 0.88rem; line-height: 1.65; margin-bottom: 1.2rem; }
+    .whatsapp-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 1.4rem;
+      color: #5FD068;
+      letter-spacing: 0.05em;
+    }
+    .whatsapp-note { font-size: 0.78rem !important; color: #6A8A6A !important; margin-top: 0.5rem !important; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #1A1410;
+      padding: 1.8rem 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #5A5040;
+    }
+
+    @media (max-width: 700px) {
+      .contact-inner { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .hero-stats { gap: 2rem; }
+    }
   </style>
 </head>
-<body class="noise text-zinc-100 antialiased selection:bg-cyan-300 selection:text-zinc-950">
-  <div class="relative overflow-hidden">
-    <div class="absolute inset-0 gridline opacity-35"></div>
+<body>
 
-    <header class="relative z-10">
-      <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-8">
-        <a href="#top" class="group inline-flex items-center gap-3">
-          <div class="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/12 bg-white/6 shadow-lg shadow-black/30">
-            <span class="text-lg font-black tracking-tight text-cyan-300">K</span>
-          </div>
-          <div>
-            <div class="text-sm font-semibold uppercase tracking-[0.28em] text-zinc-400">Kelvi.in</div>
-            <div class="text-xs text-zinc-500">Support automation, reimagined</div>
-          </div>
-        </a>
+<!-- NAVIGATION -->
+<nav>
+  <span class="nav-brand">SunRoute Travels</span>
+  <ul class="nav-links">
+    <li><a href="#packages">Packages</a></li>
+    <li><a href="#itineraries">Itineraries</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-        <nav class="hidden items-center gap-8 md:flex text-sm text-zinc-300">
-          <a href="#product" class="hover:text-white transition">Product</a>
-          <a href="#channels" class="hover:text-white transition">Channels</a>
-          <a href="#how" class="hover:text-white transition">How it works</a>
-          <a href="#pricing" class="hover:text-white transition">Pricing</a>
-        </nav>
+<!-- HERO -->
+<header class="hero">
+  <p class="hero-eyebrow">Departing from Chennai · Since 2008</p>
+  <h1>Travel that feels like <em>coming home</em> to somewhere new</h1>
+  <p>Handcrafted group tours and custom itineraries to South India's finest destinations. Every trip planned, every detail covered.</p>
+  <a href="#packages" class="hero-cta">View All Packages</a>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">15+</div>
+      <div class="stat-label">Destinations</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">12,000+</div>
+      <div class="stat-label">Happy Travellers</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">₹4,500</div>
+      <div class="stat-label">Packages Start From</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">24 hr</div>
+      <div class="stat-label">Custom Quote Turnaround</div>
+    </div>
+  </div>
+</header>
 
-        <a href="#demo" class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/8 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/12">
-          Get a demo <i data-lucide="arrow-right" class="h-4 w-4"></i>
-        </a>
+<!-- PACKAGES -->
+<section class="section" id="packages">
+  <p class="section-label">What We Offer</p>
+  <h2 class="section-title">Tour Packages from Chennai</h2>
+  <p class="section-sub">All group tours depart from Chennai Central or Koyambedu CMBT. Prices are per person for groups of 10 or more.</p>
+
+  <div class="packages-grid">
+
+    <article class="pkg-card" data-destination="Ooty" data-state="Tamil Nadu" data-duration="3N4D" data-price="8500" data-type="Group">
+      <div class="pkg-header">
+        <div>
+          <div class="pkg-dest">Ooty</div>
+          <div class="pkg-state">Tamil Nadu</div>
+        </div>
+        <span class="pkg-badge">Group</span>
       </div>
-    </header>
-
-    <main id="top" class="relative z-10">
-      <section class="mx-auto max-w-7xl px-6 pb-20 pt-6 lg:px-8 lg:pb-28 lg:pt-10">
-        <div class="grid items-center gap-14 lg:grid-cols-12">
-          <div class="lg:col-span-7">
-            <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-2 text-sm text-cyan-200">
-              <i data-lucide="sparkles" class="h-4 w-4"></i>
-              Kelvi means “question” in Tamil — கேள்வி
-            </div>
-
-            <h1 class="max-w-4xl text-5xl font-black leading-[0.93] tracking-tight text-white sm:text-6xl lg:text-7xl">
-              Every customer
-              <span class="block text-cyan-300 glow">question</span>
-              answered instantly.
-            </h1>
-
-            <p class="mt-7 max-w-2xl text-lg leading-8 text-zinc-300 sm:text-xl">
-              Kelvi.in is a multi-tenant AI support platform that helps businesses automate customer support across chat widgets, WhatsApp, email, and voice calls — with multilingual support so customers can chat and get responses in their native language, plus few lines of code, hassle-free configuration, and up to 90% support automation.
-            </p>
-
-            <div class="mt-9 flex flex-col gap-4 sm:flex-row">
-              <a href="#demo" class="inline-flex items-center justify-center gap-2 rounded-full bg-cyan-300 px-6 py-3.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-200">
-                Start with a demo <i data-lucide="move-right" class="h-4 w-4"></i>
-              </a>
-              <a href="#product" class="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-white/10">
-                See the platform <i data-lucide="play" class="h-4 w-4"></i>
-              </a>
-            </div>
-
-            <div class="mt-10 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-3">
-              <div class="glass rounded-3xl p-5">
-                <div class="text-3xl font-black text-white">2 min</div>
-                <div class="mt-1 text-sm text-zinc-400">to connect your first widget</div>
-              </div>
-              <div class="glass rounded-3xl p-5">
-                <div class="text-3xl font-black text-white">90%</div>
-                <div class="mt-1 text-sm text-zinc-400">support automation target</div>
-              </div>
-              <div class="glass rounded-3xl p-5">
-                <div class="text-3xl font-black text-white">24/7</div>
-                <div class="mt-1 text-sm text-zinc-400">fast, immediate customer satisfaction</div>
-              </div>
-            </div>
+      <div class="pkg-body">
+        <p class="pkg-name">"Nilgiri Breeze" Package</p>
+        <div class="pkg-meta">
+          <div class="pkg-meta-item">
+            <div class="meta-key">Duration</div>
+            <div class="meta-val">3 Nights / 4 Days</div>
           </div>
-
-          <div class="lg:col-span-5">
-            <div class="relative mx-auto max-w-xl">
-              <div class="absolute inset-0-z-10 rounded-[2rem] bg-cyan-300/10 blur-3xl"></div>
-              <div class="glass relative overflow-hidden rounded-[2rem] border-white/10 p-5">
-                <div class="absolute right-[-5rem] top-[-5rem] h-44 w-44 rounded-full bg-indigo-500/12 blur-2xl"></div>
-                <div class="flex items-center justify-between border-b border-white/10 pb-4">
-                  <div>
-                    <div class="text-sm font-semibold text-white">Kelvi Support Console</div>
-                    <div class="text-xs text-zinc-500">Multi-tenant workspace view</div>
-                  </div>
-                  <div class="flex items-center gap-2">
-                    <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
-                    <span class="text-xs uppercase tracking-[0.22em] text-zinc-400">Live</span>
-                  </div>
-                </div>
-
-                <div class="mt-5 grid gap-4">
-                  <div class="rounded-2xl border border-white/10 bg-black/25 p-4">
-                    <div class="flex items-center justify-between">
-                      <div class="flex items-center gap-3">
-                        <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-300/12 text-cyan-200">
-                          <i data-lucide="bot" class="h-5 w-5"></i>
-                        </div>
-                        <div>
-                          <div class="font-medium text-white">AI Chat Widget</div>
-                          <div class="text-sm text-zinc-400">Instant answers on-site</div>
-                        </div>
-                      </div>
-                      <div class="rounded-full bg-emerald-400/12 px-3 py-1 text-xs text-emerald-300">89% resolved</div>
-                    </div>
-                  </div>
-
-                  <div class="grid gap-4 sm:grid-cols-2">
-                    <div class="rounded-2xl border border-white/10 bg-black/25 p-4">
-                      <div class="flex items-center gap-3">
-                        <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-white/6 text-sky-300">
-                          <i data-lucide="message-circle" class="h-5 w-5"></i>
-                        </div>
-                        <div>
-                          <div class="font-medium text-white">WhatsApp Agent</div>
-                          <div class="text-sm text-zinc-400">Proactive replies</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="rounded-2xl border border-white/10 bg-black/25 p-4">
-                      <div class="flex items-center gap-3">
-                        <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-white/6 text-violet-300">
-                          <i data-lucide="mail" class="h-5 w-5"></i>
-                        </div>
-                        <div>
-                          <div class="font-medium text-white">Email Agent</div>
-                          <div class="text-sm text-zinc-400">Inbox deflection</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="rounded-2xl border border-white/10 bg-black/25 p-4">
-                    <div class="flex items-center gap-3">
-                      <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-white/6 text-indigo-300">
-                        <i data-lucide="phone-call" class="h-5 w-5"></i>
-                      </div>
-                      <div class="flex-1">
-                        <div class="flex items-center justify-between">
-                          <div class="font-medium text-white">Voice Call Agent</div>
-                          <div class="text-xs text-zinc-400">Human-like routing</div>
-                        </div>
-                        <div class="mt-2 h-2 rounded-full bg-white/8">
-                          <div class="h-2 w-[84%] rounded-full bg-gradient-to-r from-cyan-300 via-sky-300 to-violet-300"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="grid gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 sm:grid-cols-3">
-                    <div>
-                      <div class="text-xs uppercase tracking-[0.2em] text-zinc-500">Setup</div>
-                      <div class="mt-1 text-sm font-semibold text-white">Few lines of code</div>
-                    </div>
-                    <div>
-                      <div class="text-xs uppercase tracking-[0.2em] text-zinc-500">Config</div>
-                      <div class="mt-1 text-sm font-semibold text-white">No-code friendly</div>
-                    </div>
-                    <div>
-                      <div class="text-xs uppercase tracking-[0.2em] text-zinc-500">Language</div>
-                      <div class="mt-1 text-sm font-semibold text-white">Multilingual by design</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="pkg-meta-item">
+            <div class="meta-key">Price Per Person</div>
+            <div class="meta-val price">₹8,500</div>
+          </div>
+          <div class="pkg-meta-item">
+            <div class="meta-key">Departure</div>
+            <div class="meta-val">Every Friday</div>
+          </div>
+          <div class="pkg-meta-item">
+            <div class="meta-key">Group Size</div>
+            <div class="meta-val">10–40 people</div>
           </div>
         </div>
-      </section>
+        <ul class="highlights">
+          <li>Botanical Garden & Doddabetta Peak</li>
+          <li>Nilgiri Mountain Railway ride</li>
+          <li>Rose Garden & Ooty Lake</li>
+          <li>Tea factory visit, Avalanche Lake</li>
+        </ul>
+      </div>
+    </article>
 
-      <section id="product" class="mx-auto max-w-7xl px-6 py-8 lg:px-8">
-        <div class="grid gap-6 lg:grid-cols-3">
-          <div class="glass rounded-[2rem] p-7 lg:col-span-2">
-            <div class="flex items-center gap-2 text-sm uppercase tracking-[0.26em] text-zinc-500">
-              <span class="h-px w-10 bg-cyan-300/60"></span> why kelvi
-            </div>
-            <h2 class="mt-4 text-3xl font-black tracking-tight text-white sm:text-4xl">Built around the one thing customers always bring you: a question.</h2>
-            <p class="mt-4 max-w-2xl text-zinc-300 leading-7">
-              In Tamil, Kelvi means <span class="font-semibold text-cyan-200">“question”</span> — கேள்வி. That meaning is at the heart of the brand: every ticket, every ping, every call starts with a question. Kelvi answers those questions instantly, consistently, and at scale.
-            </p>
+    <article class="pkg-card" data-destination="Kodaikanal" data-state="Tamil Nadu" data-duration="2N3D" data-price="7200" data-type="Group">
+      <div class="pkg-header">
+        <div>
+          <div class="pkg-dest">Kodaikanal</div>
+          <div class="pkg-state">Tamil Nadu</div>
+        </div>
+        <span class="pkg-badge">Group</span>
+      </div>
+      <div class="pkg-body">
+        <p class="pkg-name">"Kodai Escape" Package</p>
+        <div class="pkg-meta">
+          <div class="pkg-meta-item">
+            <div class="meta-key">Duration</div>
+            <div class="meta-val">2 Nights / 3 Days</div>
           </div>
-
-          <div class="glass rounded-[2rem] p-7">
-            <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-300/12 text-cyan-200">
-              <i data-lucide="languages" class="h-6 w-6"></i>
-            </div>
-            <h3 class="mt-5 text-xl font-bold text-white">A name with meaning</h3>
-            <p class="mt-3 text-zinc-300 leading-7">
-              Kelvi bridges language, intent, and action — turning incoming questions into guided answers, automated resolutions, and clean handoffs when a human is needed.
-            </p>
+          <div class="pkg-meta-item">
+            <div class="meta-key">Price Per Person</div>
+            <div class="meta-val price">₹7,200</div>
+          </div>
+          <div class="pkg-meta-item">
+            <div class="meta-key">Departure</div>
+            <div class="meta-val">Every Saturday</div>
+          </div>
+          <div class="pkg-meta-item">
+            <div class="meta-key">Group Size</div>
+            <div class="meta-val">10–35 people</div>
           </div>
         </div>
-      </section>
+        <ul class="highlights">
+          <li>Kodai Lake boat ride</li>
+          <li>Coaker's Walk & Pillar Rocks</li>
+          <li>Green Valley View, Bear Shola Falls</li>
+          <li>Pine Forest & Silver Cascade</li>
+        </ul>
+      </div>
+    </article>
 
-      <section id="channels" class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-        <div class="flex items-end justify-between gap-6">
-          <div>
-            <div class="text-sm uppercase tracking-[0.26em] text-zinc-500">support channels</div>
-            <h2 class="mt-3 text-3xl font-black tracking-tight text-white sm:text-4xl">One brain. Four native ways to help.</h2>
+    <article class="pkg-card" data-destination="Munnar" data-state="Kerala" data-duration="4N5D" data-price="12000" data-type="Group">
+      <div class="pkg-header">
+        <div>
+          <div class="pkg-dest">Munnar</div>
+          <div class="pkg-state">Kerala</div>
+        </div>
+        <span class="pkg-badge">Group</span>
+      </div>
+      <div class="pkg-body">
+        <p class="pkg-name">"Kerala Mist" Package</p>
+        <div class="pkg-meta">
+          <div class="pkg-meta-item">
+            <div class="meta-key">Duration</div>
+            <div class="meta-val">4 Nights / 5 Days</div>
           </div>
-          <div class="hidden md:block max-w-md text-right text-zinc-400">
-            Serve customers where they already are: your website, WhatsApp, inbox, and phone.
+          <div class="pkg-meta-item">
+            <div class="meta-key">Price Per Person</div>
+            <div class="meta-val price">₹12,000</div>
+          </div>
+          <div class="pkg-meta-item">
+            <div class="meta-key">Departure</div>
+            <div class="meta-val">Every Thursday</div>
+          </div>
+          <div class="pkg-meta-item">
+            <div class="meta-key">Group Size</div>
+            <div class="meta-val">15–40 people</div>
           </div>
         </div>
+        <ul class="highlights">
+          <li>Eravikulam National Park</li>
+          <li>Mattupetty Dam & Indo-Swiss Farm</li>
+          <li>Attukal Waterfalls & Kundala Lake</li>
+          <li>Tea Museum, Rajamala Hills</li>
+        </ul>
+      </div>
+    </article>
 
-        <div class="mt-10 grid gap-5 lg:grid-cols-2">
-          <article class="glass rounded-[2rem] p-7">
-            <div class="flex items-center gap-3">
-              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/7 text-cyan-300"><i data-lucide="panel-top" class="h-6 w-6"></i></div>
-              <div>
-                <h3 class="text-xl font-bold text-white">AI Chat Widgets</h3>
-                <p class="text-sm text-zinc-500">Fast answers on your website and app</p>
-              </div>
-            </div>
-            <p class="mt-4 text-zinc-300 leading-7">Drop in a widget with a few lines of code. Kelvi learns from your knowledge base and resolves common questions before they reach your team.</p>
-          </article>
-
-          <article class="glass rounded-[2rem] p-7">
-            <div class="flex items-center gap-3">
-              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/7 text-emerald-300"><i data-lucide="send" class="h-6 w-6"></i></div>
-              <div>
-                <h3 class="text-xl font-bold text-white">WhatsApp Agents</h3>
-                <p class="text-sm text-zinc-500">Conversational support where customers respond fastest</p>
-              </div>
-            </div>
-            <p class="mt-4 text-zinc-300 leading-7">Automate order updates, FAQs, reminders, and support flows with a WhatsApp-first experience that feels immediate and personal.</p>
-          </article>
-
-          <article class="glass rounded-[2rem] p-7">
-            <div class="flex items-center gap-3">
-              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/7 text-violet-300"><i data-lucide="inbox" class="h-6 w-6"></i></div>
-              <div>
-                <h3 class="text-xl font-bold text-white">Email Agents</h3>
-                <p class="text-sm text-zinc-500">Triage, draft, and resolve incoming mail</p>
-              </div>
-            </div>
-            <p class="mt-4 text-zinc-300 leading-7">Kelvi turns support email into an automation layer: classify, answer, escalate, and keep every thread in one place.</p>
-          </article>
-
-          <article class="glass rounded-[2rem] p-7">
-            <div class="flex items-center gap-3">
-              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/7 text-indigo-300"><i data-lucide="phone" class="h-6 w-6"></i></div>
-              <div>
-                <h3 class="text-xl font-bold text-white">Voice Call Agents</h3>
-                <p class="text-sm text-zinc-500">Pick up, understand, and route calls</p>
-              </div>
-            </div>
-            <p class="mt-4 text-zinc-300 leading-7">Handle common call intents with AI voice agents and send complex cases to the right human with full context intact.</p>
-          </article>
+    <article class="pkg-card" data-destination="Pondicherry" data-state="Puducherry" data-duration="1N2D" data-price="4500" data-type="Group">
+      <div class="pkg-header">
+        <div>
+          <div class="pkg-dest">Pondicherry</div>
+          <div class="pkg-state">Puducherry</div>
         </div>
-      </section>
-
-      <section id="how" class="mx-auto max-w-7xl px-6 py-8 lg:px-8">
-        <div class="glass rounded-[2rem] p-7 lg:p-10">
-          <div class="grid gap-10 lg:grid-cols-12">
-            <div class="lg:col-span-4">
-              <div class="text-sm uppercase tracking-[0.26em] text-zinc-500">how it works</div>
-              <h2 class="mt-3 text-3xl font-black tracking-tight text-white sm:text-4xl">Integration so simple it feels unfair.</h2>
-              <p class="mt-4 text-zinc-300 leading-7">
-                Build once, deploy everywhere. Kelvi is designed for teams that want immediate value without a heavy implementation burden.
-              </p>
-            </div>
-
-            <div class="lg:col-span-8 grid gap-5">
-              <div class="grid gap-5 md:grid-cols-3">
-                <div class="rounded-3xl border border-white/10 bg-black/25 p-5">
-                  <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-300/12 text-cyan-200">1</div>
-                  <h3 class="mt-4 font-bold text-white">Connect</h3>
-                  <p class="mt-2 text-sm leading-6 text-zinc-400">Add a snippet or connect your channel in minutes.</p>
-                </div>
-                <div class="rounded-3xl border border-white/10 bg-black/25 p-5">
-                  <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-300/12 text-cyan-200">2</div>
-                  <h3 class="mt-4 font-bold text-white">Configure</h3>
-                  <p class="mt-2 text-sm leading-6 text-zinc-400">Set tone, workflows, handoff rules, and knowledge sources.</p>
-                </div>
-                <div class="rounded-3xl border border-white/10 bg-black/25 p-5">
-                  <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-300/12 text-cyan-200">3</div>
-                  <h3 class="mt-4 font-bold text-white">Automate</h3>
-                  <p class="mt-2 text-sm leading-6 text-zinc-400">Start resolving routine questions automatically across channels.</p>
-                </div>
-              </div>
-
-              <div class="rounded-3xl border border-white/10 bg-gradient-to-br from-white/7 to-white/3 p-6">
-                <div class="flex flex-wrap items-center justify-between gap-4">
-                  <div>
-                    <div class="text-sm text-zinc-400">Performance promise</div>
-                    <div class="mt-1 text-2xl font-black text-white">Up to 90% support automation</div>
-                  </div>
-                  <div class="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-sm font-semibold text-emerald-300">
-                    Faster resolution, happier customers
-                  </div>
-                </div>
-                <div class="mt-5 h-3 rounded-full bg-white/10">
-                  <div class="h-3 w-[90%] rounded-full bg-gradient-to-r from-cyan-300 via-sky-300 to-violet-300"></div>
-                </div>
-              </div>
-            </div>
+        <span class="pkg-badge">Group</span>
+      </div>
+      <div class="pkg-body">
+        <p class="pkg-name">"Pondy Getaway" Package</p>
+        <div class="pkg-meta">
+          <div class="pkg-meta-item">
+            <div class="meta-key">Duration</div>
+            <div class="meta-val">1 Night / 2 Days</div>
+          </div>
+          <div class="pkg-meta-item">
+            <div class="meta-key">Price Per Person</div>
+            <div class="meta-val price">₹4,500</div>
+          </div>
+          <div class="pkg-meta-item">
+            <div class="meta-key">Departure</div>
+            <div class="meta-val">Every Sunday</div>
+          </div>
+          <div class="pkg-meta-item">
+            <div class="meta-key">Group Size</div>
+            <div class="meta-val">10–50 people</div>
           </div>
         </div>
-      </section>
+        <ul class="highlights">
+          <li>Promenade Beach & Rock Beach</li>
+          <li>French Quarter walk</li>
+          <li>Auroville & Sri Aurobindo Ashram</li>
+          <li>Paradise Beach, Chunnambar Boat House</li>
+        </ul>
+      </div>
+    </article>
 
-      <section id="pricing" class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-        <div class="grid gap-6 lg:grid-cols-12">
-          <div class="lg:col-span-5">
-            <div class="text-sm uppercase tracking-[0.26em] text-zinc-500">for teams</div>
-            <h2 class="mt-3 text-3xl font-black tracking-tight text-white sm:text-4xl">Designed for businesses that want instant outcomes.</h2>
-            <p class="mt-4 text-zinc-300 leading-7">From startups to multi-location operations, Kelvi scales support automation without turning your team into system integrators.</p>
+    <article class="pkg-card" data-destination="Rameswaram" data-state="Tamil Nadu" data-duration="2N3D" data-price="5500" data-type="Pilgrimage">
+      <div class="pkg-header">
+        <div>
+          <div class="pkg-dest">Rameswaram</div>
+          <div class="pkg-state">Tamil Nadu</div>
+        </div>
+        <span class="pkg-badge">Pilgrimage</span>
+      </div>
+      <div class="pkg-body">
+        <p class="pkg-name">"Pilgrimage Special" Package</p>
+        <div class="pkg-meta">
+          <div class="pkg-meta-item">
+            <div class="meta-key">Duration</div>
+            <div class="meta-val">2 Nights / 3 Days</div>
           </div>
-
-          <div class="lg:col-span-7 grid gap-5 md:grid-cols-3">
-            <div class="glass rounded-[2rem] p-6">
-              <i data-lucide="rocket" class="h-6 w-6 text-cyan-200"></i>
-              <h3 class="mt-4 font-bold text-white">Launch fast</h3>
-              <p class="mt-2 text-sm leading-6 text-zinc-400">Go live in hours, not weeks.</p>
-            </div>
-            <div class="glass rounded-[2rem] p-6">
-              <i data-lucide="sliders-horizontal" class="h-6 w-6 text-sky-300"></i>
-              <h3 class="mt-4 font-bold text-white">No friction</h3>
-              <p class="mt-2 text-sm leading-6 text-zinc-400">Configuration stays simple, even as you scale.</p>
-            </div>
-            <div class="glass rounded-[2rem] p-6">
-              <i data-lucide="shield-check" class="h-6 w-6 text-violet-300"></i>
-              <h3 class="mt-4 font-bold text-white">Reliable handoff</h3>
-              <p class="mt-2 text-sm leading-6 text-zinc-400">Escalate to humans with full context when needed.</p>
-            </div>
+          <div class="pkg-meta-item">
+            <div class="meta-key">Price Per Person</div>
+            <div class="meta-val price">₹5,500</div>
+          </div>
+          <div class="pkg-meta-item">
+            <div class="meta-key">Departure</div>
+            <div class="meta-val">Every Tuesday</div>
+          </div>
+          <div class="pkg-meta-item">
+            <div class="meta-key">Group Size</div>
+            <div class="meta-val">20–60 people</div>
           </div>
         </div>
-      </section>
+        <ul class="highlights">
+          <li>Ramanathaswamy Temple darshan</li>
+          <li>Dhanushkodi ruins & tip of India</li>
+          <li>Agni Theertham & Pamban Bridge</li>
+          <li>Kothandaramaswamy Temple</li>
+        </ul>
+      </div>
+    </article>
 
-      <section id="demo" class="mx-auto max-w-7xl px-6 pb-24 lg:px-8">
-        <div class="relative overflow-hidden rounded-[2.25rem] border border-white/10 bg-gradient-to-br from-cyan-300/14 via-white/6 to-violet-300/10 p-8 lg:p-12">
-          <div class="absolute right-0 top-0 h-56 w-56 rounded-full bg-cyan-300/15 blur-3xl"></div>
-          <div class="grid gap-10 lg:grid-cols-12 lg:items-center">
-            <div class="lg:col-span-7">
-              <div class="text-sm uppercase tracking-[0.26em] text-zinc-400">get started</div>
-              <h2 class="mt-3 text-3xl font-black tracking-tight text-white sm:text-5xl">Turn questions into answers, instantly.</h2>
-              <p class="mt-4 max-w-2xl text-zinc-200/90 leading-7">
-                If your customers are asking it, Kelvi can likely automate it — across chat, WhatsApp, email, and voice.
-                With multilingual support, customers can ask in their native language and get responses they understand naturally.
-              </p>
-            </div>
-
-            <div class="lg:col-span-5">
-              <form class="glass rounded-[1.75rem] p-6" id="lead-form">
-                <div class="grid gap-4">
-                  <div>
-                    <label for="name" class="mb-2 block text-sm font-medium text-zinc-300">Name</label>
-                    <input id="name" name="name" type="text" placeholder="Your name" class="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none placeholder:text-zinc-600 focus:border-cyan-300/50" />
-                  </div>
-                  <div>
-                    <label for="email" class="mb-2 block text-sm font-medium text-zinc-300">Work email</label>
-                    <input id="email" name="email" type="email" placeholder="you@company.com" class="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none placeholder:text-zinc-600 focus:border-cyan-300/50" />
-                  </div>
-                  <div>
-                    <label for="company" class="mb-2 block text-sm font-medium text-zinc-300">Company</label>
-                    <input id="company" name="company" type="text" placeholder="Company name" class="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none placeholder:text-zinc-600 focus:border-cyan-300/50" />
-                  </div>
-                  <button type="submit" class="mt-2 inline-flex items-center justify-center gap-2 rounded-2xl bg-cyan-300 px-5 py-3.5 font-semibold text-slate-950 transition hover:bg-cyan-200">
-                    Request a demo <i data-lucide="arrow-right" class="h-4 w-4"></i>
-                  </button>
-                  <p class="text-xs leading-5 text-zinc-500">No spam. Just a practical conversation about automation, setup, multilingual support, and expected impact.</p>
-                </div>
-              </form>
-            </div>
+    <article class="pkg-card" data-destination="Coorg" data-state="Karnataka" data-duration="3N4D" data-price="10500" data-type="Group">
+      <div class="pkg-header">
+        <div>
+          <div class="pkg-dest">Coorg</div>
+          <div class="pkg-state">Karnataka</div>
+        </div>
+        <span class="pkg-badge">Group</span>
+      </div>
+      <div class="pkg-body">
+        <p class="pkg-name">"Karnataka Hills" Package</p>
+        <div class="pkg-meta">
+          <div class="pkg-meta-item">
+            <div class="meta-key">Duration</div>
+            <div class="meta-val">3 Nights / 4 Days</div>
+          </div>
+          <div class="pkg-meta-item">
+            <div class="meta-key">Price Per Person</div>
+            <div class="meta-val price">₹10,500</div>
+          </div>
+          <div class="pkg-meta-item">
+            <div class="meta-key">Departure</div>
+            <div class="meta-val">Every Friday</div>
+          </div>
+          <div class="pkg-meta-item">
+            <div class="meta-key">Group Size</div>
+            <div class="meta-val">10–30 people</div>
           </div>
         </div>
-      </section>
-    </main>
+        <ul class="highlights">
+          <li>Abbey Falls & Raja's Seat</li>
+          <li>Dubare Elephant Camp</li>
+          <li>Namdroling Golden Temple, Bylakuppe</li>
+          <li>Coffee plantation walk</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="pkg-card" data-destination="Goa" data-state="Goa" data-duration="4N5D" data-price="18000" data-type="Group">
+      <div class="pkg-header">
+        <div>
+          <div class="pkg-dest">Goa</div>
+          <div class="pkg-state">Goa</div>
+        </div>
+        <span class="pkg-badge">Group</span>
+      </div>
+      <div class="pkg-body">
+        <p class="pkg-name">"Goa Fun Package"</p>
+        <div class="pkg-meta">
+          <div class="pkg-meta-item">
+            <div class="meta-key">Duration</div>
+            <div class="meta-val">4 Nights / 5 Days</div>
+          </div>
+          <div class="pkg-meta-item">
+            <div class="meta-key">Price Per Person</div>
+            <div class="meta-val price">₹18,000</div>
+          </div>
+          <div class="pkg-meta-item">
+            <div class="meta-key">Departure</div>
+            <div class="meta-val">Every Wednesday</div>
+          </div>
+          <div class="pkg-meta-item">
+            <div class="meta-key">Group Size</div>
+            <div class="meta-val">15–40 people</div>
+          </div>
+        </div>
+        <ul class="highlights">
+          <li>North Goa beaches: Baga, Calangute, Anjuna</li>
+          <li>South Goa: Palolem & Colva</li>
+          <li>Old Goa churches & spice plantation</li>
+          <li>Dudhsagar Falls excursion</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="pkg-card" data-destination="Andaman" data-state="A&N Islands" data-duration="5N6D" data-price="35000" data-type="Premium">
+      <div class="pkg-header">
+        <div>
+          <div class="pkg-dest">Andaman</div>
+          <div class="pkg-state">A&N Islands</div>
+        </div>
+        <span class="pkg-badge" style="background: var(--gold-lt);">Premium</span>
+      </div>
+      <div class="pkg-body">
+        <p class="pkg-name">"Island Bliss" Package</p>
+        <div class="pkg-meta">
+          <div class="pkg-meta-item">
+            <div class="meta-key">Duration</div>
+            <div class="meta-val">5 Nights / 6 Days</div>
+          </div>
+          <div class="pkg-meta-item">
+            <div class="meta-key">Price Per Person</div>
+            <div class="meta-val price">₹35,000</div>
+          </div>
+          <div class="pkg-meta-item">
+            <div class="meta-key">Departure</div>
+            <div class="meta-val">Bi-weekly</div>
+          </div>
+          <div class="pkg-meta-item">
+            <div class="meta-key">Group Size</div>
+            <div class="meta-val">10–25 people</div>
+          </div>
+        </div>
+        <ul class="highlights">
+          <li>Havelock Island, Radhanagar Beach</li>
+          <li>Cellular Jail light & sound show</li>
+          <li>Scuba diving & snorkelling included</li>
+          <li>Neil Island, Ross Island</li>
+        </ul>
+      </div>
+    </article>
+
   </div>
 
-  <script>
-    lucide.createIcons();
+  <!-- Inclusions Table -->
+  <h3 style="margin-top: 3rem; font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--stone);">Standard Package Inclusions</h3>
+  <table class="inc-table">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Group Packages</th>
+        <th>Premium Packages</th>
+        <th>Pilgrimage Packages</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>AC Transport from Chennai</td><td class="check">✓ Included</td><td class="check">✓ Included</td><td class="check">✓ Included</td></tr>
+      <tr><td>3-Star Hotel Stay</td><td class="check">✓ Included</td><td class="check">✓ 4-Star</td><td class="check">✓ Included</td></tr>
+      <tr><td>Breakfast & Dinner</td><td class="check">✓ Included</td><td class="check">✓ All meals</td><td class="check">✓ Included</td></tr>
+      <tr><td>Sightseeing & Entry</td><td class="cross">✗ Entry fees extra</td><td class="check">✓ Included</td><td class="cross">✗ Entry fees extra</td></tr>
+      <tr><td>Tour Guide</td><td class="check">✓ Included</td><td class="check">✓ Private guide</td><td class="check">✓ Included</td></tr>
+      <tr><td>Travel Insurance</td><td class="cross">✗ Optional add-on</td><td class="check">✓ Included</td><td class="cross">✗ Optional add-on</td></tr>
+      <tr><td>Flights / Train</td><td class="cross">✗ Not included</td><td class="cross">✗ Not included</td><td class="cross">✗ Not included</td></tr>
+      <tr><td>Lunch</td><td class="cross">✗ Not included</td><td class="check">✓ Included</td><td class="cross">✗ Not included</td></tr>
+    </tbody>
+  </table>
+</section>
 
-    (function () {
-      const projectId = "acd26087-5a55-449e-acce-318ebfa4d545";
-      const form = document.getElementById("lead-form");
-      if (!form) return;
+<hr class="rule" />
 
-      const endpoint = `https://api.landing-page.io/api/mail-setting/form-events/${projectId}`;
+<!-- ITINERARIES -->
+<section class="section itin-section" id="itineraries" style="background: var(--mist); max-width: 100%; padding: 5rem 2rem;">
+  <div style="max-width: 1120px; margin: 0 auto;">
+    <p class="section-label">Day-by-Day Plans</p>
+    <h2 class="section-title">Sample Itineraries from Chennai</h2>
+    <p class="section-sub">All itineraries begin at Chennai. Travel time is included in Day 1 unless specified.</p>
 
-      function collectFields() {
-        const fields = {};
-        const elements = form.querySelectorAll("input, select, textarea");
-        elements.forEach((el) => {
-          const name = el.name || el.id;
-          if (!name) return;
-          const type = (el.type || "").toLowerCase();
-          if (type === "password" || type === "file" || type === "captcha") return;
-          if (type === "checkbox" || type === "radio") {
-            if (!el.checked) return;
-            if (fields[name] === undefined) fields[name] = el.value;
-            else if (Array.isArray(fields[name])) fields[name].push(el.value);
-            else fields[name] = [fields[name], el.value];
-            return;
-          }
-          fields[name] = el.value;
-        });
-        return fields;
-      }
+    <div class="itin-grid">
 
-      function sendCapture() {
-        const payload = { project_id: projectId, fields: collectFields() };
-        fetch(endpoint, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-          keepalive: true
-        }).catch(() => {});
-      }
+      <!-- OOTY -->
+      <article class="itin-card" data-destination="Ooty" data-package="Nilgiri Breeze" data-duration="3N4D">
+        <div class="itin-dest-header">
+          <h3>Ooty – Nilgiri Breeze (3N / 4D)</h3>
+          <span class="itin-duration">DEPARTS FRI 8 PM</span>
+        </div>
+        <div class="itin-days">
+          <div class="itin-day">
+            <div class="day-label">Day 1</div>
+            <div>
+              <div class="day-title">Chennai → Ooty (Overnight Journey)</div>
+              <div class="day-desc">Depart Chennai at 8:00 PM from Koyambedu CMBT. Board AC sleeper bus. Scenic drive through Mettupalayam, arrive Ooty by 6:00 AM.</div>
+            </div>
+          </div>
+          <div class="itin-day">
+            <div class="day-label">Day 2</div>
+            <div>
+              <div class="day-title">Ooty Sightseeing – Hills & Gardens</div>
+              <div class="day-desc">Check-in, freshen up. Visit Botanical Garden, Rose Garden, Doddabetta Peak (highest in Nilgiris at 2,637 m). Evening: Ooty Lake boating, local market.</div>
+              <div class="day-stops">
+                <span class="stop-tag">Botanical Garden</span>
+                <span class="stop-tag">Doddabetta Peak</span>
+                <span class="stop-tag">Rose Garden</span>
+                <span class="stop-tag">Ooty Lake</span>
+              </div>
+            </div>
+          </div>
+          <div class="itin-day">
+            <div class="day-label">Day 3</div>
+            <div>
+              <div class="day-title">Nilgiri Railway & Tea Country</div>
+              <div class="day-desc">Morning: UNESCO Nilgiri Mountain Railway heritage ride (Ooty to Coonoor). Afternoon: Tea factory visit, Sim's Park Coonoor, Lamb's Rock viewpoint. Return to Ooty.</div>
+              <div class="day-stops">
+                <span class="stop-tag">Nilgiri Mountain Railway</span>
+                <span class="stop-tag">Tea Factory</span>
+                <span class="stop-tag">Sim's Park</span>
+                <span class="stop-tag">Lamb's Rock</span>
+              </div>
+            </div>
+          </div>
+          <div class="itin-day">
+            <div class="day-label">Day 4</div>
+            <div>
+              <div class="day-title">Avalanche Lake → Return to Chennai</div>
+              <div class="day-desc">Morning: Visit Avalanche Lake, Emerald Lake. Check-out by 12 PM. Depart Ooty, arrive Chennai by 10:00–11:00 PM.</div>
+              <div class="day-stops">
+                <span class="stop-tag">Avalanche Lake</span>
+                <span class="stop-tag">Emerald Lake</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
 
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        sendCapture();
-        const btn = form.querySelector("button[type='submit']");
-        if (btn) {
-          const original = btn.innerHTML;
-          btn.innerHTML = "Requested <i data-lucide='check' class='h-4 w-4'></i>";
-          lucide.createIcons();
-          setTimeout(() => { btn.innerHTML = original; lucide.createIcons(); }, 1800);
-        }
-        form.reset();
-      });
+      <!-- PONDICHERRY -->
+      <article class="itin-card" data-destination="Pondicherry" data-package="Pondy Getaway" data-duration="1N2D">
+        <div class="itin-dest-header">
+          <h3>Pondicherry – Pondy Getaway (1N / 2D)</h3>
+          <span class="itin-duration">DEPARTS SUN 6 AM</span>
+        </div>
+        <div class="itin-days">
+          <div class="itin-day">
+            <div class="day-label">Day 1</div>
+            <div>
+              <div class="day-title">Chennai → Pondicherry → Beach & French Quarter</div>
+              <div class="day-desc">Depart Chennai at 6:00 AM, arrive Pondicherry by 9:30 AM (via ECR). Check-in. Visit Promenade Beach, Rock Beach, Goubert Market. Afternoon: French Quarter walk — Rue de la Marine, Rue Suffren, cafés. Evening: Sunset at Promenade.</div>
+              <div class="day-stops">
+                <span class="stop-tag">Promenade Beach</span>
+                <span class="stop-tag">Rock Beach</span>
+                <span class="stop-tag">French Quarter</span>
+                <span class="stop-tag">Goubert Market</span>
+              </div>
+            </div>
+          </div>
+          <div class="itin-day">
+            <div class="day-label">Day 2</div>
+            <div>
+              <div class="day-title">Auroville, Paradise Beach → Return Chennai</div>
+              <div class="day-desc">Early morning: Sri Aurobindo Ashram. Mid-morning: Auroville and Matrimandir (outer viewing). Afternoon: Paradise Beach via Chunnambar boat ride. Depart by 5 PM, arrive Chennai by 9 PM.</div>
+              <div class="day-stops">
+                <span class="stop-tag">Sri Aurobindo Ashram</span>
+                <span class="stop-tag">Auroville</span>
+                <span class="stop-tag">Matrimandir</span>
+                <span class="stop-tag">Paradise Beach</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
 
-      form.addEventListener("click", function (e) {
-        const btn = e.target.closest("button[type='submit']");
-        if (btn) setTimeout(sendCapture, 0);
-      });
-    })();
-  </script>
-<script>
-window.__AILP_FORM_CAPTURE__ = {
-  endpointBase: "https://api.landing-page.io/api/mail-setting/form-events",
-  projectId: "acd26087-5a55-449e-acce-318ebfa4d545",
-  conversationId: "conv_cd731234944546868aa029345b925dd0",
-  captureVersion: "2026-05-21-normalized-dedupe-v8"
-};
-</script>
-<script>
-(function () {
-  if (window.__AILP_FORM_CAPTURE_BOUND__) return;
-  window.__AILP_FORM_CAPTURE_BOUND__ = true;
-  var config = window.__AILP_FORM_CAPTURE__ || {};
-  var projectId = config.projectId || "";
-  var endpointBase = config.endpointBase || "https://api.landing-page.io/api/mail-setting/form-events";
-  var endpoint = endpointBase.replace(/\/$/, "") + "/" + encodeURIComponent(projectId || "unknown-project");
-  var lastReportedForm = null;
-  var lastReportedAt = 0;
-  var lastSubmitKey = "";
-  var formEventsDedupe = window.__AILP_FORM_EVENTS_DEDUPE__ || {};
-  window.__AILP_FORM_EVENTS_DEDUPE__ = formEventsDedupe;
+      <!-- MUNNAR -->
+      <article class="itin-card" data-destination="Munnar" data-package="Kerala Mist" data-duration="4N5D">
+        <div class="itin-dest-header">
+          <h3>Munnar – Kerala Mist (4N / 5D)</h3>
+          <span class="itin-duration">DEPARTS THU 7 PM</span>
+        </div>
+        <div class="itin-days">
+          <div class="itin-day">
+            <div class="day-label">Day 1</div>
+            <div>
+              <div class="day-title">Chennai → Coimbatore → Munnar</div>
+              <div class="day-desc">Depart Chennai 7 PM. Overnight journey to Coimbatore. Morning transfer to Munnar via Adimali. Check-in by afternoon. Evening at leisure.</div>
+            </div>
+          </div>
+          <div class="itin-day">
+            <div class="day-label">Day 2</div>
+            <div>
+              <div class="day-title">Eravikulam & Tea Estates</div>
+              <div class="day-desc">Visit Eravikulam National Park (Nilgiri Tahr habitat). Tea Museum, Rajamala Hills. Afternoon: Attukal Waterfalls. Evening: local market walk.</div>
+              <div class="day-stops">
+                <span class="stop-tag">Eravikulam NP</span>
+                <span class="stop-tag">Tea Museum</span>
+                <span class="stop-tag">Rajamala Hills</span>
+                <span class="stop-tag">Attukal Falls</span>
+              </div>
+            </div>
+          </div>
+          <div class="itin-day">
+            <div class="day-label">Day 3</div>
+            <div>
+              <div class="day-title">Mattupetty & Kundala</div>
+              <div class="day-desc">Mattupetty Dam & Indo-Swiss Livestock Farm. Echo Point. Kundala Lake (shikara boating). Top Station (highest motorable point in Munnar, 1,700m).</div>
+              <div class="day-stops">
+                <span class="stop-tag">Mattupetty Dam</span>
+                <span class="stop-tag">Echo Point</span>
+                <span class="stop-tag">Kundala Lake</span>
+                <span class="stop-tag">Top Station</span>
+              </div>
+            </div>
+          </div>
+          <div class="itin-day">
+            <div class="day-label">Day 4</div>
+            <div>
+              <div class="day-title">Valara & Cheeyappara Waterfalls</div>
+              <div class="day-desc">Morning excursion to Valara and Cheeyappara Waterfalls en route to Ernakulam. Optional: Periyar Wildlife Sanctuary visit (extra cost). Evening: shopping at Munnar town.</div>
+            </div>
+          </div>
+          <div class="itin-day">
+            <div class="day-label">Day 5</div>
+            <div>
+              <div class="day-title">Munnar → Chennai (Return)</div>
+              <div class="day-desc">Check-out by 9 AM. Depart for Coimbatore. Board return bus/train to Chennai. Arrive by 10 PM–11 PM.</div>
+            </div>
+          </div>
+        </div>
+      </article>
 
-  function isFormEventsUrl(url) {
-    return String(url || "").indexOf("/api/mail-setting/form-events/") !== -1;
-  }
+      <!-- RAMESWARAM -->
+      <article class="itin-card" data-destination="Rameswaram" data-package="Pilgrimage Special" data-duration="2N3D">
+        <div class="itin-dest-header">
+          <h3>Rameswaram – Pilgrimage Special (2N / 3D)</h3>
+          <span class="itin-duration">DEPARTS TUE 6 PM</span>
+        </div>
+        <div class="itin-days">
+          <div class="itin-day">
+            <div class="day-label">Day 1</div>
+            <div>
+              <div class="day-title">Chennai → Rameswaram</div>
+              <div class="day-desc">Depart Chennai at 6 PM. Overnight bus journey. Arrive Rameswaram by 5 AM. Check-in. Early morning holy dip at Agni Theertham beach.</div>
+            </div>
+          </div>
+          <div class="itin-day">
+            <div class="day-label">Day 2</div>
+            <div>
+              <div class="day-title">Temple Darshan & Dhanushkodi</div>
+              <div class="day-desc">Morning: Ramanathaswamy Temple — 22 sacred theertham baths (corridor is the longest in Asia at 1.2 km). Afternoon: Dhanushkodi ghost town, tip of India land's end. Pamban Bridge viewing. Evening: Kothandaramaswamy Temple.</div>
+              <div class="day-stops">
+                <span class="stop-tag">Ramanathaswamy Temple</span>
+                <span class="stop-tag">Dhanushkodi</span>
+                <span class="stop-tag">Pamban Bridge</span>
+                <span class="stop-tag">Kothandaramaswamy Temple</span>
+              </div>
+            </div>
+          </div>
+          <div class="itin-day">
+            <div class="day-label">Day 3</div>
+            <div>
+              <div class="day-title">Mandapam & Return to Chennai</div>
+              <div class="day-desc">Morning: Gandhamadhana Parvatham (footprint of Rama). Marine National Park, Mandapam. Depart by noon. Arrive Chennai by 11 PM.</div>
+            </div>
+          </div>
+        </div>
+      </article>
 
-  function requestBodyFromFetchArgs(args) {
-    if (args.length > 1 && args[1] && Object.prototype.hasOwnProperty.call(args[1], "body")) {
-      return args[1].body || "";
-    }
-    var input = args[0];
-    return input && input.body ? input.body : "";
-  }
+    </div>
+  </div>
+</section>
 
-  function stableStringify(value) {
-    if (value === null || typeof value !== "object") return JSON.stringify(value);
-    if (Array.isArray(value)) {
-      return "[" + value.map(stableStringify).join(",") + "]";
-    }
-    return "{" + Object.keys(value).sort().map(function (key) {
-      return JSON.stringify(key) + ":" + stableStringify(value[key]);
-    }).join(",") + "}";
-  }
+<hr class="rule" />
 
-  function normalizedFormEventsRequestKey(url, body) {
-    var raw = String(body || "");
-    try {
-      var parsed = JSON.parse(raw);
-      return [
-        String(url || ""),
-        String(parsed.project_id || projectId || ""),
-        stableStringify(parsed.fields || {})
-      ].join("|");
-    } catch (err) {
-      return String(url || "") + "|" + raw;
-    }
-  }
+<!-- PRICING TABLE -->
+<section class="section" id="pricing">
+  <p class="section-label">At a Glance</p>
+  <h2 class="section-title">Full Package Pricing</h2>
+  <p class="section-sub">All prices are per person for standard group bookings. Group discounts apply.</p>
 
-  function isDuplicateFormEventsRequest(key) {
-    var now = Date.now();
-    var previous = formEventsDedupe[key] || 0;
-    formEventsDedupe[key] = now;
-    return previous && now - previous < 3000;
-  }
+  <div class="price-table-wrap">
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th>Destination</th>
+          <th>Package Name</th>
+          <th>Duration</th>
+          <th>Price / Person</th>
+          <th>Type</th>
+          <th>Departs</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="dest-name">Pondicherry</td><td>Pondy Getaway</td><td>1N / 2D</td><td class="price-cell">₹4,500</td><td>Group</td><td>Every Sunday</td></tr>
+        <tr><td class="dest-name">Rameswaram</td><td>Pilgrimage Special</td><td>2N / 3D</td><td class="price-cell">₹5,500</td><td>Pilgrimage</td><td>Every Tuesday</td></tr>
+        <tr><td class="dest-name">Kodaikanal</td><td>Kodai Escape</td><td>2N / 3D</td><td class="price-cell">₹7,200</td><td>Group</td><td>Every Saturday</td></tr>
+        <tr><td class="dest-name">Ooty</td><td>Nilgiri Breeze</td><td>3N / 4D</td><td class="price-cell">₹8,500</td><td>Group</td><td>Every Friday</td></tr>
+        <tr><td class="dest-name">Coorg</td><td>Karnataka Hills</td><td>3N / 4D</td><td class="price-cell">₹10,500</td><td>Group</td><td>Every Friday</td></tr>
+        <tr><td class="dest-name">Munnar</td><td>Kerala Mist</td><td>4N / 5D</td><td class="price-cell">₹12,000</td><td>Group</td><td>Every Thursday</td></tr>
+        <tr><td class="dest-name">Goa</td><td>Goa Fun Package</td><td>4N / 5D</td><td class="price-cell">₹18,000</td><td>Group</td><td>Every Wednesday</td></tr>
+        <tr><td class="dest-name">Andaman</td><td>Island Bliss</td><td>5N / 6D</td><td class="price-cell">₹35,000</td><td>Premium</td><td>Bi-weekly</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-  if (typeof fetch === "function" && !window.__AILP_FORM_EVENTS_FETCH_PATCHED__) {
-    window.__AILP_FORM_EVENTS_FETCH_PATCHED__ = true;
-    var nativeFetch = fetch.bind(window);
-    window.fetch = function () {
-      var args = Array.prototype.slice.call(arguments);
-      var input = args[0];
-      var url = typeof input === "string" ? input : (input && input.url) || "";
-      if (isFormEventsUrl(url)) {
-        var body = requestBodyFromFetchArgs(args);
-        var key = normalizedFormEventsRequestKey(url, body);
-        if (isDuplicateFormEventsRequest(key)) {
-          var responseBody = JSON.stringify({
-            code: 200,
-            message: "duplicate form event skipped",
-            data: { deduped: true }
-          });
-          if (typeof Response === "function") {
-            return Promise.resolve(new Response(responseBody, {
-              status: 200,
-              headers: { "Content-Type": "application/json" }
-            }));
-          }
-          return Promise.resolve({
-            ok: true,
-            status: 200,
-            text: function () { return Promise.resolve(responseBody); },
-            json: function () { return Promise.resolve(JSON.parse(responseBody)); }
-          });
-        }
-      }
-      return nativeFetch.apply(window, args);
-    };
-  }
+  <div style="margin-top: 2rem; background: var(--teal-lt); border-left: 3px solid var(--teal); padding: 1.2rem 1.5rem; border-radius: 2px;">
+    <strong style="color: var(--teal); font-size: 0.85rem;">Group Discount Policy</strong>
+    <p style="font-size: 0.88rem; color: var(--mid); margin-top: 0.3rem;">
+      10–20 travellers: 5% off · 21–40 travellers: 10% off · 41+ travellers: 15% off all per-person rates.
+      Discounts apply to base package price only. Cannot be combined with seasonal offers.
+    </p>
+  </div>
+</section>
 
-  function fieldForKey(form, key) {
-    if (!form || !form.elements) return null;
-    var field = form.elements[key];
-    if (!field) return null;
-    if (field.length && !field.type) return field[0] || null;
-    return field;
-  }
+<hr class="rule" />
 
-  function put(data, key, value) {
-    if (Object.prototype.hasOwnProperty.call(data, key)) {
-      if (!Array.isArray(data[key])) data[key] = [data[key]];
-      data[key].push(value);
-    } else {
-      data[key] = value;
-    }
-  }
+<!-- CUSTOMIZED PACKAGES -->
+<section class="section" id="custom">
+  <p class="section-label">Made For You</p>
+  <h2 class="section-title">Customized Itineraries</h2>
+  <p class="section-sub">Have specific dates, a mixed group, or a destination not listed? We build it from scratch.</p>
 
-  function collectFields(form) {
-    var data = {};
-    if (!form) return data;
-    var fd = new FormData(form);
-    fd.forEach(function (value, key) {
-      var field = fieldForKey(form, key);
-      var type = field ? String(field.type || "").toLowerCase() : "";
-      var lowerKey = String(key || "").toLowerCase();
-      if (type === "password" || lowerKey.indexOf("captcha") !== -1) {
-        put(data, key, "[redacted]");
-        return;
-      }
-      if (value instanceof File) {
-        put(data, key, value.name ? "[file:" + value.name + "]" : "");
-        return;
-      }
-      put(data, key, value);
-    });
-    return data;
-  }
+  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.2rem; margin-top: 1rem;">
+    <div style="background: var(--white); border: 1px solid var(--rule); padding: 1.5rem; border-radius: 2px;">
+      <div class="section-label" style="margin-bottom: 0.6rem;">Step 1</div>
+      <h4 style="color: var(--stone); font-size: 1rem; margin-bottom: 0.5rem;">Share Your Requirements</h4>
+      <p style="font-size: 0.85rem; color: var(--mid);">Tell us destination, dates, number of travellers, budget per person, and any special requests (honeymoon, senior-friendly, adventure-focused).</p>
+    </div>
+    <div style="background: var(--white); border: 1px solid var(--rule); padding: 1.5rem; border-radius: 2px;">
+      <div class="section-label" style="margin-bottom: 0.6rem;">Step 2</div>
+      <h4 style="color: var(--stone); font-size: 1rem; margin-bottom: 0.5rem;">Receive Your Itinerary</h4>
+      <p style="font-size: 0.85rem; color: var(--mid);">Within 24 hours, you receive a day-wise itinerary with hotel options, transport plan, and a detailed cost breakdown — no obligation.</p>
+    </div>
+    <div style="background: var(--white); border: 1px solid var(--rule); padding: 1.5rem; border-radius: 2px;">
+      <div class="section-label" style="margin-bottom: 0.6rem;">Step 3</div>
+      <h4 style="color: var(--stone); font-size: 1rem; margin-bottom: 0.5rem;">Book with 30% Advance</h4>
+      <p style="font-size: 0.85rem; color: var(--mid);">Confirm the itinerary, pay 30% advance via UPI or bank transfer, and your trip is locked in. Balance due 7 days before departure.</p>
+    </div>
+  </div>
 
-  function collectButtonContext(button) {
-    var data = {};
-    if (!button) return data;
-    var text = String(button.innerText || button.value || button.getAttribute("aria-label") || button.getAttribute("title") || "").trim();
-    if (text) data.button_text = text;
-    var href = button.getAttribute && button.getAttribute("href");
-    if (href) data.button_href = href;
-    var target = button.getAttribute && (button.getAttribute("data-target") || button.getAttribute("aria-controls"));
-    if (target) data.button_target = target;
-    return data;
-  }
+  <div style="margin-top: 2rem; background: var(--mist); border: 1px solid var(--rule); padding: 1.5rem; border-radius: 2px;">
+    <strong style="font-size: 0.9rem; color: var(--stone);">What can be customised?</strong>
+    <p style="font-size: 0.88rem; color: var(--mid); margin-top: 0.5rem;">
+      Departure date · Number of days · Hotel category (budget / 3-star / 4-star / resort) · Meal preferences (vegetarian / Jain / non-veg) · Mode of transport (bus / train / flight) · Adding destinations mid-route · Private vs. group travel · Language of guide (Tamil, Telugu, Hindi, English)
+    </p>
+  </div>
+</section>
 
-  function emitResult(status, detail) {
-    try {
-      window.dispatchEvent(new CustomEvent("ailp:form-capture", {
-        detail: Object.assign({ status: status }, detail || {})
-      }));
-    } catch (err) {}
-  }
+<hr class="rule" />
 
-  function sendWithBeacon(body) {
-    if (!navigator.sendBeacon) return false;
-    return navigator.sendBeacon(endpoint, new Blob([body], { type: "application/json" }));
-  }
+<!-- FAQ -->
+<section class="section" id="faq">
+  <p class="section-label">Common Questions</p>
+  <h2 class="section-title">Frequently Asked Questions</h2>
+  <p class="section-sub">Everything you need to know before booking.</p>
 
-  function send(payload) {
-    var body = JSON.stringify(payload);
-    if (typeof fetch !== "function") {
-      var queued = sendWithBeacon(body);
-      emitResult(queued ? "queued" : "failed", { payload: payload });
-      return;
-    }
-    fetch(endpoint, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: body
-    }).then(function (response) {
-      return response.text().then(function (text) {
-        var data = null;
-        if (text) {
-          try { data = JSON.parse(text); } catch (err) { data = text; }
-        }
-        emitResult(response.ok ? "success" : "error", {
-          ok: response.ok,
-          statusCode: response.status,
-          response: data,
-          payload: payload
-        });
-      });
-    }).catch(function (error) {
-      var queued = sendWithBeacon(body);
-      emitResult(queued ? "queued" : "failed", {
-        error: error ? String(error.message || error) : "",
-        payload: payload
-      });
-    });
-  }
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary class="faq-q">What packages are available for Ooty from Chennai?</summary>
+      <div class="faq-a">We offer the "Nilgiri Breeze" package — 3 Nights / 4 Days at ₹8,500 per person. It departs every Friday at 8 PM from Koyambedu CMBT and includes AC transport, 3-star hotel, breakfast & dinner, Nilgiri Mountain Railway ride, and guided sightseeing to Botanical Garden, Doddabetta Peak, Avalanche Lake, and Coonoor Tea Estates.</div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-q">How many days is the Munnar trip from Chennai?</summary>
+      <div class="faq-a">The Munnar "Kerala Mist" package is 4 Nights / 5 Days. We depart from Chennai at 7 PM on Day 1 and return by Day 5 evening (around 10–11 PM). Highlights include Eravikulam National Park, Mattupetty Dam, Kundala Lake, Tea Museum, and Top Station. Price is ₹12,000 per person for groups of 15 or more.</div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-q">What is the Pondicherry itinerary?</summary>
+      <div class="faq-a">Day 1: Depart Chennai at 6 AM, arrive by 9:30 AM. Visit Promenade Beach, Rock Beach, French Quarter. Evening sunset at Promenade. Day 2: Sri Aurobindo Ashram, Auroville, Paradise Beach via Chunnambar boat ride. Return to Chennai by 9 PM. Price: ₹4,500 per person.</div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-q">Do you offer customized itineraries?</summary>
+      <div class="faq-a">Yes, we specialise in customized packages. Share your destination, travel dates, number of travellers, and budget via WhatsApp at +91 98400 00000. Our team will prepare a personalized day-wise itinerary and cost quote within 24 hours at no obligation.</div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-q">What is the cheapest package available?</summary>
+      <div class="faq-a">Our most affordable package is the "Pondy Getaway" to Pondicherry — 1 Night / 2 Days at ₹4,500 per person. It departs every Sunday and includes AC transport, hotel, breakfast & dinner, and sightseeing to Auroville and Paradise Beach.</div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-q">Is there a group discount?</summary>
+      <div class="faq-a">Yes. Groups of 10–20 get 5% off, 21–40 get 10% off, and 41+ travellers get 15% off the standard per-person price. Discounts apply to the base package price and cannot be combined with other offers.</div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-q">What is the cancellation policy?</summary>
+      <div class="faq-a">30 or more days before travel: full refund. 15–29 days before travel: 50% refund. Less than 15 days: no refund. You can reschedule once for free if done at least 20 days before the trip. Reschedule requests within 20 days incur a ₹500 per person fee.</div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-q">How do I book a trip?</summary>
+      <div class="faq-a">You can book via WhatsApp at +91 98400 00000, call the same number during office hours (Mon–Sat, 9 AM – 7 PM), or visit our office in T. Nagar, Chennai. A 30% advance payment is required to confirm your booking. Balance is due 7 days before departure.</div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-q">What payment methods do you accept?</summary>
+      <div class="faq-a">We accept UPI (Google Pay, PhonePe, Paytm), NEFT/IMPS bank transfer, and cash at our T. Nagar office. EMI options are available for packages priced above ₹25,000 per person through select banks.</div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-q">Do you have packages for international destinations?</summary>
+      <div class="faq-a">Currently, SunRoute Travels specialises in domestic Indian destinations. For international travel enquiries, please contact us on WhatsApp and our team will connect you with a partner agency that handles international tours.</div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-q">Are the packages suitable for senior citizens?</summary>
+      <div class="faq-a">Yes. Pondicherry, Rameswaram, and Ooty are particularly well-suited for senior travellers. We can arrange ground-floor rooms, vegetarian meals, a slower-paced sightseeing schedule, and private transport on request. Mention senior-friendly requirements when you book.</div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-q">What is the best time to visit Ooty / Kodaikanal / Munnar?</summary>
+      <div class="faq-a">Ooty and Kodaikanal are best from March to June (cool, pleasant, flowers in bloom) and September to November (post-monsoon greenery). Munnar is best from September to March. We recommend avoiding the peak monsoon months (July–August) for hill stations as roads can be difficult. Pondicherry and Rameswaram are suitable year-round.</div>
+    </details>
+  </div>
+</section>
 
-  function payloadKey(form, payload) {
-    var fields = payload && payload.fields ? payload.fields : {};
-    return [
-      payload.project_id || "",
-      form ? form.id || "" : "",
-      stableStringify(fields)
-    ].join("|");
-  }
+<hr class="rule" />
 
-  function hasRealFormAction(form) {
-    if (!form) return false;
-    var raw = String(form.getAttribute("action") || "").trim();
-    if (!raw || raw === "#") return false;
-    try {
-      var actionUrl = new URL(raw, location.href);
-      return actionUrl.href !== location.href && actionUrl.hash !== "#";
-    } catch (err) {
-      return false;
-    }
-  }
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <h2>Get in touch with us</h2>
+      <p>Our team is available Monday to Saturday, 9 AM to 7 PM IST. For after-hours enquiries, WhatsApp us and we'll respond by the next morning.</p>
+      <div class="contact-details">
+        <div class="contact-row">
+          <span class="contact-key">WhatsApp</span>
+          <span class="contact-val">+91 98400 00000</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-key">Phone</span>
+          <span class="contact-val">+91 98400 00000 (Mon–Sat, 9 AM – 7 PM)</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-key">Email</span>
+          <span class="contact-val">support@sunroutetravels.in</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-key">Office</span>
+          <span class="contact-val">12, Usman Road, T. Nagar, Chennai – 600017</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-key">Hours</span>
+          <span class="contact-val">Monday to Saturday · 9:00 AM – 7:00 PM IST</span>
+        </div>
+      </div>
+    </div>
+    <div class="contact-right">
+      <div class="whatsapp-box">
+        <h3>WhatsApp Us Directly</h3>
+        <p>Send us your travel requirements on WhatsApp and get a custom itinerary within 24 hours. Share destination, dates, number of travellers, and budget.</p>
+        <div class="whatsapp-num">+91 98400 00000</div>
+        <p class="whatsapp-note">Automated replies available 24×7 for package info, pricing, and itineraries.</p>
+      </div>
+      <div style="margin-top: 1.2rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); padding: 1.2rem 1.5rem; border-radius: 2px;">
+        <strong style="font-size: 0.82rem; color: #8A8070; text-transform: uppercase; letter-spacing: 0.08em;">Quick Booking Info</strong>
+        <ul style="list-style: none; margin-top: 0.8rem; display: grid; gap: 0.5rem;">
+          <li style="font-size: 0.85rem; color: #B0A898;">→ 30% advance to confirm booking</li>
+          <li style="font-size: 0.85rem; color: #B0A898;">→ Balance due 7 days before departure</li>
+          <li style="font-size: 0.85rem; color: #B0A898;">→ UPI / Bank transfer / Cash accepted</li>
+          <li style="font-size: 0.85rem; color: #B0A898;">→ Custom quote in 24 hours, no obligation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-  function report(form, eventType, button) {
-    if (!form && !button) return;
-    var payload = {
-      project_id: config.projectId || "",
-      conversation_id: config.conversationId || "",
-      event_type: eventType || "form_submit",
-      page_url: location.href,
-      form_id: form ? form.id || "" : "",
-      form_name: form ? form.getAttribute("name") || "" : "",
-      button_text: button ? String(button.innerText || button.value || "").trim() : "",
-      fields: form ? collectFields(form) : collectButtonContext(button)
-    };
-    var key = payloadKey(form, payload);
-    if (key === lastSubmitKey && Date.now() - lastReportedAt < 3000) return;
-    lastSubmitKey = key;
-    lastReportedForm = form;
-    lastReportedAt = Date.now();
-    send(payload);
-  }
+<footer>
+  <p>© 2025 SunRoute Travels, Chennai · GSTIN: 33AABCS1234A1Z5 · Tourism License: TN/2008/1234</p>
+  <p style="margin-top: 0.4rem;">This is a sample static page for Kelvi AI support system testing purposes.</p>
+</footer>
 
-  document.addEventListener("submit", function (e) {
-    if (!hasRealFormAction(e.target)) e.preventDefault();
-    if (e.target === lastReportedForm && Date.now() - lastReportedAt < 1500) return;
-    report(e.target, "form_submit", null);
-  }, true);
-
-  document.addEventListener("click", function (e) {
-    var target = e.target;
-    var button = target && target.closest ? target.closest('button, input[type="submit"], input[type="button"], [role="button"]') : null;
-    if (!button) return;
-    var form = button.form || (button.closest ? button.closest("form") : null);
-    if (form && !hasRealFormAction(form)) e.preventDefault();
-    report(form, "form_button_click", button);
-  }, true);
-})();
-</script>
 </body>
 </html>
